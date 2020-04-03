@@ -2,7 +2,7 @@
   <div class="container ">
     <div class="columns is-multiline is-mobile">
       <div class="column is-half">
-        <Table @pick="pickACard"/>
+        <Table @pick="pickACard" :player-name="this.name"/>
       </div>
       <div class="column is-one-quarter" v-for="person in persons" :key="person.id">
         <Player :person="person"/>
@@ -24,6 +24,7 @@
       return {
         card: "",
         round: 0,
+        
         persons: [
           {
             id: 0,
@@ -37,24 +38,24 @@
             status: "En attente",
             cards: []
           }
-        ]
+        ],
+        name: "",
       };
+    },
+    created: function () {
+      this.name = this.persons[this.round].name;
     },
     methods: {
       pickACard: function(cardPicked) {
-        console.log('pick a card');
-        console.log(cardPicked);
         this.persons[this.round].cards.push(cardPicked);
         this.persons[this.round].status = "En attente";
-        console.log('look person cards');
-        console.log(this.persons[this.round].cards);
         if (this.round + 1 === this.persons.length) {
           this.round = 0;
         } else {
           this.round++;
         }
         this.persons[this.round].status = "Joue";
-        console.log(this.round);
+        this.name = this.persons[this.round].name;
       }
     }
   }

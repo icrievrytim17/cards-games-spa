@@ -26,8 +26,6 @@ export default {
   props: ['person'],
   methods: {
     getImgUrl(imageName) {
-      console.log("show card for the player");
-      console.log(imageName);
       if (imageName !== undefined) {
         return require("./../assets/" + imageName);
       }
