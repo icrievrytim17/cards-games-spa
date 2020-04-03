@@ -24,7 +24,6 @@
       return {
         card: "",
         round: 0,
-        
         persons: [
           {
             id: 0,

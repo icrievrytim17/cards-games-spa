@@ -16,7 +16,7 @@
 
 <script>
 /* eslint-disable */
-import Deck from "./../deck.json";
+  import Deck from "./../deck.json";
   export default {
     props: ['playerName'],
     data() {
@@ -34,7 +34,7 @@ import Deck from "./../deck.json";
       },
       getImgUrl(imageName) {
         if (imageName !== undefined) {
-          return require("./../assets/" + imageName);
+          return "/cards/" + imageName;
         }
       }
     }

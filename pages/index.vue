@@ -10,8 +10,8 @@
               <span>BLACK</span>
             </p>
           </div>
-          <figure class="image is-square">
-            <img src="http://pluspng.com/img-png/playing-cards-png-hd-ace-playing-card-png-2494.png">
+          <figure class="image is-16by9">
+            <img src="/cards-pack/aces.png">
           </figure>
           <br/>
           <div>

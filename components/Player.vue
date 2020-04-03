@@ -27,7 +27,7 @@ export default {
   methods: {
     getImgUrl(imageName) {
       if (imageName !== undefined) {
-        return require("./../assets/" + imageName);
+        return "/cards/" + imageName;
       }
     }
   }
