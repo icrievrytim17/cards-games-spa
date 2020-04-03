@@ -3,7 +3,7 @@
     <div class="card-content">
       <div>
         <br/>
-        <img :src="getImgUrl(card.png)" v-bind:alt="card.number">
+        <img width="30%" :src="getImgUrl(card.png)" v-bind:alt="card.number">
       </div>
       <div class="content">
         <br/>
@@ -32,7 +32,7 @@ import Deck from "./../deck.json";
         this.card = this.deck[chosenNumber]; // pick the card in the deck
         this.deck.splice(chosenNumber, 1); // remove the card in the deck
         console.log(this.card);
-        //return this.card;
+        this.$emit("pick",this.card);
       },
       getImgUrl(imageName) {
         console.log(imageName);
@@ -40,6 +40,6 @@ import Deck from "./../deck.json";
           return require("./../assets/" + imageName);
         }
       }
-    },
+    }
   }
 </script>

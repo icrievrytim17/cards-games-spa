@@ -1,32 +1,11 @@
 <template>
   <div class="container ">
     <div class="columns is-multiline is-mobile">
-      <div class="column is-one-third">
-        <Player />
-      </div>
-      <div class="column is-one-third">
-        <Player />
-      </div>
-      <div class="column is-one-third">
-        <Player />
-      </div>
-      <div class="column is-one-quarter is-primary">
-        <Player />
-      </div>
       <div class="column is-half">
         <Table @pick="pickACard"/>
       </div>
-      <div class="column is-one-quarter">
-        <Player />
-      </div>
-      <div class="column is-one-quarter">
-        <Player />
-      </div>
-      <div class="column is-one-quarter">
-        <Player />
-      </div>
-      <div class="column">
-        <Player />
+      <div class="column is-one-quarter" v-for="person in persons" :key="person.id">
+        <Player :person="person"/>
       </div>
     </div>
   </div>
@@ -62,12 +41,13 @@
       };
     },
     methods: {
-      pickACard: function() {
+      pickACard: function(cardPicked) {
         console.log('pick a card');
-        console.log(this.persons);
-        this.pick();
-        this.persons[this.round].cards.push(this.card);
+        console.log(cardPicked);
+        this.persons[this.round].cards.push(cardPicked);
         this.persons[this.round].status = "En attente";
+        console.log('look person cards');
+        console.log(this.persons[this.round].cards);
         if (this.round + 1 === this.persons.length) {
           this.round = 0;
         } else {
@@ -89,4 +69,3 @@
     text-align: center;
   }
 </style>
-
