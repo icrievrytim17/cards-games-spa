@@ -16,17 +16,17 @@
             </div>
             <div id="navbarMenuHeroA" class="navbar-menu">
               <div class="navbar-end">
-                <a class="navbar-item is-active" href="/">
+                <nuxt-link class="navbar-item is-active" to="/">
                   Home
-                </a>
-                <a class="navbar-item" href="/room">
+                </nuxt-link>
+                <n-link class="navbar-item" to="/room">
                   Room
-                </a>
+                </n-link>
                 <span class="navbar-item">
-              <a class="button is-dark">
-                <span>Download</span>
-              </a>
-            </span>
+                  <a class="button is-dark">
+                    <span>Download</span>
+                  </a>
+                </span>
               </div>
             </div>
           </div>
@@ -42,25 +42,3 @@
     </footer>
   </div>
 </template>
-
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-</style>

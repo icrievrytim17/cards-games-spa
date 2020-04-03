@@ -15,7 +15,7 @@
           </figure>
           <br/>
           <div>
-            <a href="/add-player" class="button is-black is-large"><span>Play</span></a>
+            <nuxt-link to="/add-player" class="button is-black is-large"><span>Play</span></nuxt-link>
           </div>
         </div>
       </div>

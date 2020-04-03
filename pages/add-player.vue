@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="columns is-centered">
+    <div class="columns is-centered is-multiline">
       <div class="column is-half">
         <div class="box has-text-centered">
           <label class="label">Add players</label>
@@ -28,24 +28,32 @@
             </header>
           </div>
           <div class="field">
-            <a class="button is-black" aria-label="Play - Jouer" @click="play()">
+            <nuxt-link class="button is-black" aria-label="Play - Jouer" to="/room">
               Play
-            </a>
+            </nuxt-link>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 <script>
+  import { mapGetters } from 'vuex'
   export default {
     data() {
       return {
-        players: [],
         newplayer: "",
         playerCount: 0
       }
+    },
+    created() {
+      //when arriving on this page, we clear the players in the store
+      this.$store.commit('players/clear');
+    },
+    computed: {
+      ...mapGetters({
+        players: 'players/get',
+      })
     },
     methods: {
       addPlayer: function(player) {
@@ -56,26 +64,24 @@
           state = "Playing";
         }
         //Add players for the game
-        this.players.push({
-          id: this.playerCount,
-          name: player,
-          state: state,
-          cards: []
-        });
+        this.$store.commit('players/add',
+          {
+            id: this.playerCount,
+            name: player,
+            state: state,
+            cards: []
+          }
+        );
         //Increment player count for next player id
         this.playerCount++;
         //Empty the input text
         this.newplayer = "";
-        console.table(this.players);
       },
       deleteLastPlayer: function(key) {
         //delete player from table
-        this.players.splice(key, 1);
+        this.$store.commit('players/splice', key);
         //Decrement the number of player
         this.playerCount--;
-      },
-      play: function(){
-
       }
     }
   }

@@ -2,28 +2,27 @@
   <div class="card">
     <header class="card-header">
       <p class="card-header-title">
-        {{person.name}}
+        {{player.name}}
       </p>
     </header>
     <div class="card-content">
 
       <div class="media">
-        <div class="media-content" v-for="personCard in person.cards" :key="personCard.id">
-          <img width="60%" :src="getImgUrl(personCard.png)" :alt="personCard.number">
+        <div class="media-content" v-for="playerCard in player.cards" :key="playerCard.id">
+          <img width="60%" :src="getImgUrl(playerCard.png)" :alt="playerCard.number">
         </div>
       </div>
       <div class="content">
-        {{person.status}}
+        {{player.state}}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-/* eslint-disable */
 export default {
   name: 'Player',
-  props: ['person'],
+  props: ['player'],
   methods: {
     getImgUrl(imageName) {
       if (imageName !== undefined) {
