@@ -12,8 +12,8 @@
       <div class="content" v-if="river">
         <strong>River</strong>
         <br />
-        <p v-if="!this.give">Prend {{this.sip}} goule</p>
-        <p v-if="this.give">Donne {{this.sip}} goule</p>
+        <p v-if="!this.give">Prend {{this.sip}} <span v-if="this.sip === 1">gorgée</span><span v-if="this.sip !== 1">gorgées</span></p>
+        <p v-if="this.give">Donne {{this.sip}} <span v-if="this.sip === 1">gorgée</span><span v-if="this.sip !== 1">gorgées</span></p>
       </div>
       <button @click="distribute" v-if="!river" class="button is-dark is-medium is-rounded">Draw a card</button>
       <button @click="pickRiver" v-if="river" class="button is-dark is-medium is-rounded">Draw a card</button>
