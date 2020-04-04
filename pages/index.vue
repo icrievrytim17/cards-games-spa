@@ -11,11 +11,13 @@
             </p>
           </div>
           <figure class="image is-16by9">
-            <img src="/cards-pack/aces.png">
+            <img src="/cards-pack/aces.png" />
           </figure>
-          <br/>
+          <br />
           <div>
-            <nuxt-link to="/add-player" class="button is-black is-large"><span>Play</span></nuxt-link>
+            <nuxt-link to="/add-player" class="button is-black is-large">
+              <span>Play</span>
+            </nuxt-link>
           </div>
         </div>
       </div>
