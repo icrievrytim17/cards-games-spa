@@ -5,9 +5,7 @@
       <nav class="navbar is-light">
         <div class="container">
           <div class="navbar-brand">
-            <!--              <a class="navbar-item">-->
-            <!--                <img src="https://bulma.io/images/bulma-type.png" alt="Logo">-->
-            <!--              </a>-->
+            <img src="/hiclipart.com.png" width="75" height="75" alt="Logo" />
             <p class="is-size-1">
               Cards games
             </p>
