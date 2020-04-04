@@ -6,10 +6,13 @@
         <img width="30%" :src="getImgUrl(card.png)" :alt="card.number" />
       </div>
       <br />
-      <div v-if="playerName != '' && !river" class="content">
+      <div v-if="playerName != '' && !river && round === 0" class="content">
         C'est au tour de <strong>{{ playerName }}</strong>
       </div>
-      <div v-if="river" class="content">
+      <div v-if="river && round === 0" class="content">
+        La distribution est terminée. Place à la <strong>River</strong>
+      </div>
+      <div v-if="river && round > 0" class="content">
         <strong>River</strong>
         <br />
         <p v-if="!give">
@@ -59,7 +62,7 @@ export default {
       deck: Deck,
       card: "",
       sip: 1,
-      round: 1,
+      round: 0,
       give: false,
     }
   },
@@ -76,9 +79,11 @@ export default {
     pickRiver: function () {
       console.log("pick for the rive")
       this.pick()
+      if (this.round !== 0) {
+        this.give = !this.give
+      }
       this.round++
-      this.give = !this.give
-      if (this.round % 2) {
+      if (this.round > 1 && this.round % 2) {
         this.sip++
       }
     },
