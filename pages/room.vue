@@ -2,7 +2,7 @@
   <div class="container ">
     <div class="columns is-multiline is-mobile">
       <div class="column is-half">
-        <Table @pick="pickACard" :player-name="this.name"/>
+        <Table @pick="pickACard" :player-name="this.name" :river="this.river"/>
       </div>
       <div class="column is-one-quarter" v-for="player in players" :key="player.id">
         <Player :player="player"/>
@@ -25,6 +25,8 @@
       return {
         card: "",
         round: 0,
+        draw: 0,
+        river: false,
         name: ""
       };
     },
@@ -39,19 +41,29 @@
     },
     methods: {
       pickACard: function(cardPicked) {
-        let argsAddCard = { 'id' : this.round, 'card' : cardPicked};
-        this.$store.commit('players/addcard', argsAddCard);
-        let argsStatePlayer = { 'id' : this.round, 'state' : 'Waiting'};
-        this.$store.commit('players/updatePlayerState', argsStatePlayer);
-        if (this.round + 1 === this.players.length) {
-          this.round = 0;
-        } else {
-          this.round++;
+        if (this.draw < 5) {
+          let argsAddCard = { 'id' : this.round, 'card' : cardPicked};
+          this.$store.commit('players/addcard', argsAddCard);
+          let argsStatePlayer = { 'id' : this.round, 'state' : 'Waiting'};
+          this.$store.commit('players/updatePlayerState', argsStatePlayer);
+          if (this.round + 1 === this.players.length) {
+            this.round = 0;
+            this.draw++;
+          } else {
+            this.round++;
+          }
+          let argsStateNextPlayer = "";
+          if (this.draw === 4) {
+            this.river = true;
+            argsStateNextPlayer = { 'id' : this.round, 'state' : 'Waiting'};
+          } else {
+            argsStateNextPlayer = { 'id' : this.round, 'state' : 'Playing'};
+            this.name = this.players[this.round].name;
+          }
+            this.$store.commit('players/updatePlayerState', argsStateNextPlayer);
         }
-        let argsStateNextPlayer = { 'id' : this.round, 'state' : 'Playing'};
-        this.$store.commit('players/updatePlayerState', argsStateNextPlayer);
-        this.name = this.players[this.round].name;
       }
     }
   }
 </script>
+

@@ -5,36 +5,57 @@
         <br/>
         <img width="30%" :src="getImgUrl(card.png)" v-bind:alt="card.number">
       </div>
-      <div class="content" v-if="playerName != ''">
-        <br/>
+      <br/>
+      <div class="content" v-if="playerName != '' && !river">
         C'est au tour de <strong>{{playerName}}</strong>
       </div>
-      <button @click="pick" class="button is-dark is-medium is-rounded">Draw a card</button>
+      <div class="content" v-if="river">
+        <strong>River</strong>
+        <br />
+        <p v-if="!this.give">Prend {{this.sip}} goule</p>
+        <p v-if="this.give">Donne {{this.sip}} goule</p>
+      </div>
+      <button @click="distribute" v-if="!river" class="button is-dark is-medium is-rounded">Draw a card</button>
+      <button @click="pickRiver" v-if="river" class="button is-dark is-medium is-rounded">Draw a card</button>
     </div>
   </div>
 </template>
 
 <script>
-/* eslint-disable */
-  import Deck from "./../deck.json";
+  import Deck from './../deck.json';
   export default {
-    props: ['playerName'],
+    props: ['playerName', 'river'],
     data() {
       return {
         deck: Deck,
         card: "",
+        sip: 1,
+        round: 1,
+        give: false
       }
     },
     methods: {
+      distribute: function () {
+        this.pick();
+        this.$emit('pick',this.card);
+      },
       pick: function() {
         var chosenNumber = Math.floor(Math.random() * this.deck.length);
         this.card = this.deck[chosenNumber]; // pick the card in the deck
         this.deck.splice(chosenNumber, 1); // remove the card in the deck
-        this.$emit("pick",this.card);
+      },
+      pickRiver: function() {
+        console.log("pick for the rive");
+        this.pick();
+        this.round++;
+        this.give = !this.give;
+        if (this.round%2) {
+          this.sip++;
+        }
       },
       getImgUrl(imageName) {
         if (imageName !== undefined) {
-          return "/cards/" + imageName;
+          return '/cards/' + imageName;
         }
       }
     }
