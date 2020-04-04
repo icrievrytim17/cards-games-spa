@@ -4,6 +4,10 @@
       <div class="column is-half">
         <div class="box has-text-centered">
           <label class="label">Add players</label>
+          <p>
+            Players min = 2 / Players max = 10
+          </p>
+          <br />
           <div class="field is-grouped">
             <div class="control is-expanded">
               <input
@@ -12,11 +16,16 @@
                 type="text"
                 maxlength="20"
                 placeholder="New player"
+                @keyup.enter="
+                  !nbrMaxPlayers && newplayer.length > 0
+                    ? addPlayer(newplayer)
+                    : ''
+                "
               />
             </div>
             <div class="control">
               <button
-                :disabled="newplayer.length === 0"
+                :disabled="nbrMaxPlayers || newplayer.length === 0"
                 :required="newplayer.length > 0"
                 class="button is-black"
                 @click="addPlayer(newplayer)"
@@ -45,6 +54,7 @@
           </div>
           <div class="field">
             <nuxt-link
+              v-if="nbrMiniPlayers"
               class="button is-black"
               aria-label="Play - Jouer"
               to="/room"
@@ -70,6 +80,21 @@ export default {
     ...mapGetters({
       players: "players/get",
     }),
+    //Return true if min player (2)
+    nbrMiniPlayers: function () {
+      if (this.playerCount > 1) {
+        return true
+      }
+      return false
+    },
+    //Return true if max player added (10)
+    nbrMaxPlayers: function () {
+      if (this.playerCount > 9) {
+        console.log(this.playerCount)
+        return true
+      }
+      return false
+    },
   },
   created() {
     //when arriving on this page, we clear the players in the store
