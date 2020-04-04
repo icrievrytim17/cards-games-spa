@@ -13,7 +13,7 @@
           class="media-content"
         >
           <img
-            width="60%"
+            :width="widthCard"
             :src="getImgUrl(playerCard.png)"
             :alt="playerCard.number"
           />
@@ -35,6 +35,17 @@ export default {
       default: function () {
         return []
       },
+    },
+  },
+  computed: {
+    widthCard: function () {
+      if (this.player.cards.length > 2) {
+        return "100%"
+      } else if (this.player.cards.length > 1) {
+        return "80%"
+      } else {
+        return "60%"
+      }
     },
   },
   methods: {
