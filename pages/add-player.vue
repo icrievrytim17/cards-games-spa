@@ -4,6 +4,7 @@
       <div class="column is-half">
         <div class="box has-text-centered">
           <label class="label">Add players</label>
+          <hr />
           <p>
             Players min = 2 / Players max = 10
           </p>
