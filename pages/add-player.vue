@@ -1,7 +1,24 @@
 <template>
   <div class="container">
-    <div class="columns is-centered is-multiline">
+    <div class="columns is-centered is-multiline is-marginless">
       <div class="column is-half">
+        <div class="box has-text-centered">
+          <label class="label">Rules</label>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu
+            rutrum odio. Mauris aliquam sed neque id vulputate. Nulla suscipit
+            blandit ligula malesuada facilisis. Suspendisse potenti.
+            Pellentesque lacinia fringilla tellus, quis aliquam nibh lobortis
+            eu. Nulla a est sit amet arcu ullamcorper hendrerit. Curabitur
+            placerat mollis aliquam. Nam non pulvinar erat. Proin egestas
+            gravida turpis, quis sollicitudin dolor porttitor et. Morbi gravida
+            elit nisi, eu vulputate massa facilisis et.
+          </p>
+          <br />
+        </div>
+      </div>
+      <div class="column is-one-third">
         <div class="box has-text-centered">
           <label class="label">Add players</label>
           <hr />
@@ -28,7 +45,7 @@
               <button
                 :disabled="nbrMaxPlayers || newplayer.length === 0"
                 :required="newplayer.length > 0"
-                class="button is-black"
+                class="button is-primary"
                 @click="addPlayer(newplayer)"
               >
                 Add
@@ -44,7 +61,7 @@
               <p class="card-header-icon">
                 <button
                   v-if="players.length - 1 === player.id"
-                  class="button is-danger is-small"
+                  class="button is-dark is-small"
                   aria-label="Delete player"
                   @click="deleteLastPlayer(player.id)"
                 >
@@ -56,11 +73,11 @@
           <div class="field">
             <nuxt-link
               v-if="nbrMiniPlayers"
-              class="button is-black"
+              class="button is-primary"
               aria-label="Play - Jouer"
               to="/room"
             >
-              Play
+              Let's dot it
             </nuxt-link>
           </div>
         </div>

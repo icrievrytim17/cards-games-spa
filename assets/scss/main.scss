@@ -1,0 +1,39 @@
+/*
+** Doc : https://dev.to/overscoremedia/use-bulma-and-fontawesome-5-with-nuxt-js-11le
+*/
+@import "~bulma/sass/utilities/_all";
+
+$primary: #96031A;
+$primary-invert: findColorInvert($primary);
+
+$black: #1B1B1E;
+
+$link: #6E0313;
+$link-invert: findColorInvert($link);
+
+$light: #6D676E;
+$light-invert: findColorInvert($light);
+
+$dark: hsl(0, 0%, 15%);
+$dark-invert: findColorInvert($dark);
+
+$strong-color: $dark;
+
+$colors: (
+  "white": ($white, $black),
+  "black": ($black, $white),
+  "link": ($link, $link-invert),
+  "light": ($light, $light-invert),
+  "dark": ($dark, $dark-invert),
+  "primary": ($primary, $primary-invert),
+  "info": ($info, $info-invert),
+  "success": ($success, $success-invert),
+  "warning": ($warning, $warning-invert),
+  "danger": ($danger, $danger-invert)
+);
+
+@import '~bulma';
+
+.has-background-primary-gradient {
+  background: linear-gradient(90deg, $primary 0%, $link 40%, $primary 100%);
+}

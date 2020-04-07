@@ -1,12 +1,12 @@
 <template>
-  <div class="columns is-centered">
+  <div class="columns is-centered is-multiline is-marginless">
     <div class="column is-one-third">
       <div class="box box-shadow-lift">
         <div class="card-content">
           <div class="media">
             <div class="media-content">
               <p class="title is-4">
-                Red or Black
+                RED OR BLACK
               </p>
               <hr class="primary" />
             </div>
@@ -24,7 +24,7 @@
           2 to 10 players.
         </p>
         <hr />
-        <nuxt-link to="/add-player" class="button is-black is-fullwidth">
+        <nuxt-link to="/add-player" class="button is-primary is-fullwidth">
           <span class="icon">
             <i class="fab fa-youtube" aria-hidden="true"></i>
           </span>

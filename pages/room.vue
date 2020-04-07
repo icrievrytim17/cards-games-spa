@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="columns is-multiline is-mobile">
+    <div class="columns is-multiline is-mobile is-marginless">
       <div class="column is-half">
         <Table v-if="!river" :player-name="name" @pick="pickACard" />
         <TableRiver v-if="river" :player-name="name" @pick="pickACard" />
