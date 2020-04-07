@@ -2,7 +2,8 @@
   <div class="container">
     <div class="columns is-multiline is-mobile">
       <div class="column is-half">
-        <Table :player-name="name" :river="river" @pick="pickACard" />
+        <Table v-if="!river" :player-name="name" @pick="pickACard" />
+        <TableRiver v-if="river" :player-name="name" @pick="pickACard" />
       </div>
       <div
         v-for="player in players"
@@ -18,17 +19,19 @@
 <script>
 import Player from "~/components/Player.vue"
 import Table from "~/components/Table.vue"
+import TableRiver from "~/components/TableRiver.vue"
 import { mapGetters } from "vuex"
 export default {
   components: {
     Player,
     Table,
+    TableRiver,
   },
   data() {
     return {
       card: "",
       round: 0,
-      draw: 0,
+      draw: 1,
       river: false,
       name: "",
     }
@@ -56,7 +59,7 @@ export default {
           this.round++
         }
         let argsStateNextPlayer = ""
-        if (this.draw === 4) {
+        if (this.draw > 4) {
           this.river = true
           argsStateNextPlayer = { id: this.round, state: "Waiting" }
         } else {
