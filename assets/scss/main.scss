@@ -32,8 +32,30 @@ $colors: (
   "danger": ($danger, $danger-invert)
 );
 
+$footer-padding : 3rem 1.5rem 4rem;
+
 @import '~bulma';
 
 .has-background-primary-gradient {
   background: linear-gradient(90deg, $primary 0%, $link 40%, $primary 100%);
+}
+
+.main {
+  min-height: 78vh;
+}
+
+.box-shadow-lift:hover {
+  .button {
+    box-shadow: 0 1rem 2rem 0 rgba(10,10,10,.1);
+    transform: translateY(-.25rem);
+  }
+
+}
+
+.navbar.has-shadow {
+  box-shadow: 0 1px 6px 0 $black;
+}
+
+.container.has-shadow {
+  box-shadow: 0 1px 6px 0 $black;
 }

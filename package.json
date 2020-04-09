@@ -1,7 +1,7 @@
 {
-  "name": "cards-games-spa",
+  "name": "play-and-drink",
   "version": "1.0.0",
-  "description": "Launch fast game cards during your parties",
+  "description": "Launch fast games during your parties.",
   "author": "Gllm Fgn",
   "private": true,
   "scripts": {
