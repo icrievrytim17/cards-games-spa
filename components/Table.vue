@@ -8,6 +8,16 @@
       <br />
       <div v-if="showPickResult" class="content">
         {{ lastPlayer }} <strong>{{ pickResult }}</strong>
+        <p v-if="pickResult === 'Perdu'">
+          Prend {{ sip }}
+          <span v-if="sip === 1">gorgée</span>
+          <span v-if="sip !== 1">gorgées</span>
+        </p>
+        <p v-if="pickResult === 'Gagné'">
+          Donne {{ sip }}
+          <span v-if="sip === 1">gorgée</span>
+          <span v-if="sip !== 1">gorgées</span>
+        </p>
       </div>
       <div v-if="player.name != '' && round === 0" class="content">
         C'est au tour de <strong>{{ player.name }}</strong>
@@ -54,6 +64,32 @@
           Extérieur
         </button>
       </div>
+      <div v-if="draw === 4">
+        <button
+          class="button is-dark is-medium is-rounded"
+          @click="distribute('coeur')"
+        >
+          Coeur
+        </button>
+        <button
+          class="button is-dark is-medium is-rounded"
+          @click="distribute('carreau')"
+        >
+          Carreau
+        </button>
+        <button
+          class="button is-dark is-medium is-rounded"
+          @click="distribute('trefle')"
+        >
+          Trèfle
+        </button>
+        <button
+          class="button is-dark is-medium is-rounded"
+          @click="distribute('pique')"
+        >
+          Pique
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -61,6 +97,7 @@
 <script>
 import Deck from "./../deck.json"
 import _sortBy from "lodash.sortby"
+import _isEqual from "lodash.isequal"
 export default {
   props: {
     player: {
@@ -79,8 +116,8 @@ export default {
       pickResult: "Perdu",
       showPickResult: false,
       lastPlayer: "",
-      sip: 1,
       round: 0,
+      sip: 1,
       give: false,
     }
   },
@@ -98,12 +135,13 @@ export default {
     showResult: function (choice) {
       console.log(choice)
       var result = ""
+      this.lastPlayer = this.player.name
       this.showPickResult = true
       this.pickResult = "Perdu"
       if (this.draw === 1) {
         console.log("Premier tirage Rouge ou Noir")
         result = "noir"
-        if (this.card.color === "rouge") {
+        if (_isEqual(this.card.color, "rouge")) {
           result = "rouge"
         }
       } else if (this.draw === 2) {
@@ -122,10 +160,22 @@ export default {
         ) {
           result = "int"
         }
+      } else if (this.draw === 4) {
+        console.log("Quatrième tirage Rouge ou Noir")
+        result = "coeur"
+        console.log(this.card.sign)
+        if (_isEqual(this.card.sign, "trefle")) {
+          result = "trefle"
+        } else if (_isEqual(this.card.sign, "pique")) {
+          result = "pique"
+        } else if (_isEqual(this.card.sign, "carreau")) {
+          result = "carreau"
+        }
       }
       if (choice === result) {
         this.pickResult = "Gagné"
       }
+      this.sip = this.draw
       console.log(this.pickResult)
     },
     getImgUrl(imageName) {

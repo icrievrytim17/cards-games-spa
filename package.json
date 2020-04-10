@@ -15,6 +15,7 @@
   "dependencies": {
     "@nuxtjs/bulma": "^1.2.1",
     "@nuxtjs/style-resources": "^1.0.0",
+    "lodash.isequal": "^4.5.0",
     "lodash.sortby": "^4.7.0",
     "nuxt": "^2.0.0"
   },
