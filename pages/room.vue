@@ -2,7 +2,12 @@
   <div class="container">
     <div class="columns is-multiline is-mobile is-marginless">
       <div class="column is-half">
-        <Table v-if="!river" :player-name="name" @pick="pickACard" />
+        <Table
+          v-if="!river"
+          :draw="draw"
+          :player="players[round]"
+          @pick="pickACard"
+        />
         <TableRiver v-if="river" :player-name="name" @pick="pickACard" />
       </div>
       <div
