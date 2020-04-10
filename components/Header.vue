@@ -26,7 +26,14 @@
               About
             </n-link>
             <span class="navbar-item">
-              <a class="button is-dark">
+              <a
+                class="button is-dark"
+                href="https://github.com/icrievrytim17/cards-games-spa"
+                target="_blank "
+              >
+                <span class="icon">
+                  <fa-icon :icon="faGithub" class="fa-1x" />
+                </span>
                 <span>Github</span>
               </a>
             </span>
@@ -51,3 +58,13 @@
   }
 }
 </style>
+<script>
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+export default {
+  computed: {
+    faGithub() {
+      return faGithub
+    },
+  },
+}
+</script>

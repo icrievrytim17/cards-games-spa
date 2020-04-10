@@ -33,7 +33,20 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: [
+    /*
+     ** Documentation fontawesome module
+     ** https://github.com/nuxt-community/fontawesome-module
+     */
+    [
+      "@nuxtjs/fontawesome",
+      {
+        component: "fa",
+        suffix: true,
+      },
+    ],
+  ],
+
   /*
    ** Nuxt.js modules
    */
