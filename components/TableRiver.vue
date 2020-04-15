@@ -18,7 +18,7 @@
           <span v-if="sip !== 1">gorgées</span>
         </p>
         <p v-if="give">
-          Donne<span>{{ sip }}</span>
+          Donne <span>{{ sip }}</span>
           <span v-if="sip === 1">gorgée</span>
           <span v-if="sip !== 1">gorgées</span>
         </p>

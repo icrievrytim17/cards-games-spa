@@ -24,7 +24,7 @@
       </div>
       <div v-if="draw === 1">
         <button
-          class="button is-red is-medium is-rounded"
+          class="button is-primary is-medium is-rounded"
           @click="distribute('rouge')"
         >
           Rouge
@@ -97,7 +97,6 @@
 <script>
 import Deck from "./../deck.json"
 import _sortBy from "lodash.sortby"
-import _isEqual from "lodash.isequal"
 export default {
   props: {
     player: {
@@ -140,10 +139,7 @@ export default {
       this.pickResult = "Perdu"
       if (this.draw === 1) {
         console.log("Premier tirage Rouge ou Noir")
-        result = "noir"
-        if (_isEqual(this.card.color, "rouge")) {
-          result = "rouge"
-        }
+        result = this.card.color
       } else if (this.draw === 2) {
         console.log("Deuxième tirage Plus ou Moins")
         result = "moins"
@@ -162,15 +158,7 @@ export default {
         }
       } else if (this.draw === 4) {
         console.log("Quatrième tirage Rouge ou Noir")
-        result = "coeur"
-        console.log(this.card.sign)
-        if (_isEqual(this.card.sign, "trefle")) {
-          result = "trefle"
-        } else if (_isEqual(this.card.sign, "pique")) {
-          result = "pique"
-        } else if (_isEqual(this.card.sign, "carreau")) {
-          result = "carreau"
-        }
+        result = this.card.sign
       }
       if (choice === result) {
         this.pickResult = "Gagné"
