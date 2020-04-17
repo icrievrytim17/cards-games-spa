@@ -6,26 +6,30 @@
         <img width="30%" :src="getImgUrl(card.png)" :alt="card.number" />
       </div>
       <br />
-      <div v-if="round === 0" class="content">
-        La distribution est terminée. Place à la <strong>River</strong>
+      <div>
+        <div class="content">
+          <strong>River</strong>
+          <br />
+          <p v-if="!give">
+            Prend {{ sip }}
+            <span v-if="sip === 1">gorgée</span>
+            <span v-if="sip !== 1">gorgées</span>
+          </p>
+          <p v-if="give">
+            Donne <span>{{ sip }}</span>
+            <span v-if="sip === 1">gorgée</span>
+            <span v-if="sip !== 1">gorgées</span>
+          </p>
+        </div>
+        <button
+          v-if="deck.length > 0"
+          class="button is-dark is-medium is-rounded"
+          @click="pick"
+        >
+          Draw a card
+        </button>
+        <p v-if="deck.length === 0">C'est terminé. Merci d'avoir joué.</p>
       </div>
-      <div v-if="round > 0" class="content">
-        <strong>River</strong>
-        <br />
-        <p v-if="!give">
-          Prend {{ sip }}
-          <span v-if="sip === 1">gorgée</span>
-          <span v-if="sip !== 1">gorgées</span>
-        </p>
-        <p v-if="give">
-          Donne <span>{{ sip }}</span>
-          <span v-if="sip === 1">gorgée</span>
-          <span v-if="sip !== 1">gorgées</span>
-        </p>
-      </div>
-      <button class="button is-dark is-medium is-rounded" @click="pick">
-        Draw a card
-      </button>
     </div>
   </div>
 </template>
