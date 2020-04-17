@@ -7,6 +7,7 @@
           :draw="draw"
           :player="players[round]"
           @pick="pickACard"
+          @go-river="showRiver"
         />
         <TableRiver v-if="river" :player-name="name" @pick="pickACard" />
       </div>
@@ -65,7 +66,6 @@ export default {
         }
         let argsStateNextPlayer = ""
         if (this.draw > 4) {
-          this.river = true
           argsStateNextPlayer = { id: this.round, state: "Waiting" }
         } else {
           argsStateNextPlayer = { id: this.round, state: "Playing" }
@@ -73,6 +73,9 @@ export default {
         }
         this.$store.commit("players/updatePlayerState", argsStateNextPlayer)
       }
+    },
+    showRiver: function () {
+      this.river = true  
     },
   },
 }

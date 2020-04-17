@@ -19,7 +19,7 @@
           <span v-if="sip !== 1">gorgées</span>
         </p>
       </div>
-      <div v-if="player.name != ''" class="content">
+      <div v-if="player.name != '' && draw < 4" class="content">
         C'est au tour de <strong>{{ player.name }}</strong>
         <br />
         <span v-if="draw === 1">
@@ -104,6 +104,13 @@
           Pique
         </button>
       </div>
+      <button
+        v-if="draw === 5"
+        class="button is-primary is-medium is-rounded"
+        @click="goToRiver"
+      >
+        Passer à la rivière
+      </button>
     </div>
   </div>
 </template>
@@ -152,7 +159,6 @@ export default {
       this.$store.commit("deck/SPLICE", chosenNumber) // remove the card in the deck
     },
     showResult: function (choice) {
-      console.log(choice)
       var result = ""
       this.lastPlayer = this.player.name
       this.showPickResult = true
@@ -184,7 +190,9 @@ export default {
         this.pickResult = "Gagné"
       }
       this.sip = this.draw
-      console.log(this.pickResult)
+    },
+    goToRiver: function () {
+      this.$emit("go-river")
     },
     getImgUrl(imageName) {
       if (imageName !== undefined) {
