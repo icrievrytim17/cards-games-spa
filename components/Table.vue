@@ -3,7 +3,7 @@
     <div class="card-content">
       <div>
         <br />
-        <img width="30%" :src="getImgUrl(card.png)" :alt="card.number" />
+        <img width="30%" :src="getImgUrl(card.png)" :alt="card.name" />
       </div>
       <br />
       <div v-if="showPickResult" class="content">
@@ -19,8 +19,22 @@
           <span v-if="sip !== 1">gorgées</span>
         </p>
       </div>
-      <div v-if="player.name != '' && round === 0" class="content">
+      <div v-if="player.name != ''" class="content">
         C'est au tour de <strong>{{ player.name }}</strong>
+        <br />
+        <span v-if="draw === 1">
+          Rouge ou noir
+        </span>
+        <span v-if="draw === 2">
+          Plus ou moins que {{ sortedCards[0].name }}
+        </span>
+        <span v-if="draw === 3">
+          A l'intérieur de {{ sortedCards[0].name }} et
+          {{ sortedCards[1].name }} ou à l'extérieur
+        </span>
+        <span v-if="draw === 4">
+          Coeur, Carreau, Trèfle ou Pique
+        </span>
       </div>
       <div v-if="draw === 1">
         <button
@@ -115,10 +129,13 @@ export default {
       pickResult: "Perdu",
       showPickResult: false,
       lastPlayer: "",
-      round: 0,
       sip: 1,
-      give: false,
     }
+  },
+  computed: {
+    sortedCards: function () {
+      return _sortBy(this.player.cards, "number")
+    },
   },
   methods: {
     distribute: function (choice) {
