@@ -109,8 +109,8 @@
 </template>
 
 <script>
-import Deck from "./../deck.json"
 import _sortBy from "lodash.sortby"
+import { mapGetters } from "vuex"
 export default {
   props: {
     player: {
@@ -124,7 +124,6 @@ export default {
   },
   data() {
     return {
-      deck: Deck,
       card: "",
       pickResult: "Perdu",
       showPickResult: false,
@@ -133,6 +132,10 @@ export default {
     }
   },
   computed: {
+    //GET pour récupérer dans le store le deck
+    ...mapGetters({
+      deck: "deck/get",
+    }),
     sortedCards: function () {
       return _sortBy(this.player.cards, "number")
     },
@@ -146,7 +149,7 @@ export default {
     pick: function () {
       var chosenNumber = Math.floor(Math.random() * this.deck.length)
       this.card = this.deck[chosenNumber] // pick the card in the deck
-      this.deck.splice(chosenNumber, 1) // remove the card in the deck
+      this.$store.commit("deck/SPLICE", chosenNumber) // remove the card in the deck
     },
     showResult: function (choice) {
       console.log(choice)

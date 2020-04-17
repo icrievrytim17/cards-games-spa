@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Deck from "./../deck.json"
+import { mapGetters } from "vuex"
 export default {
   props: {
     playerName: {
@@ -41,18 +41,24 @@ export default {
   },
   data() {
     return {
-      deck: Deck,
       card: "",
       sip: 1,
       round: 0,
       give: false,
     }
   },
+  computed: {
+    //GET pour récupérer dans le store le deck
+    ...mapGetters({
+      deck: "deck/get",
+    }),
+  },
   methods: {
     pick: function () {
       var chosenNumber = Math.floor(Math.random() * this.deck.length)
       this.card = this.deck[chosenNumber] // pick the card in the deck
-      this.deck.splice(chosenNumber, 1) // remove the card in the deck
+      console.log(this.deck)
+      this.$store.commit("deck/SPLICE", chosenNumber) // remove the card in the deck
       if (this.round !== 0) {
         this.give = !this.give
       }
