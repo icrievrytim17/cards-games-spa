@@ -1,22 +1,20 @@
-import Deck from "./../deck.json"
-
 export const state = () => ({
-  deck: Deck,
+  list: [],
 })
 
 export const mutations = {
   //splice a card in the deck
   SPLICE(state, key) {
-    state.deck.splice(key, 1)
+    state.list.splice(key, 1)
   },
-  SET(state, deck) {
-    state.deck = deck
+  ADD(state, card) {
+    state.list.push(card)
   },
 }
 
 export const getters = {
   //get the deck
   get(state) {
-    return state.deck
+    return state.list
   },
 }

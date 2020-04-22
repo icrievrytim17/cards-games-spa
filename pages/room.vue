@@ -46,6 +46,7 @@ export default {
     //GET pour récupérer dans le store la liste players
     ...mapGetters({
       players: "players/get",
+      discard: "discard/get",
     }),
   },
   created: function () {
@@ -58,6 +59,10 @@ export default {
         this.$store.commit("players/addcard", argsAddCard)
         let argsStatePlayer = { id: this.round, state: "Waiting" }
         this.$store.commit("players/updatePlayerState", argsStatePlayer)
+        this.$store.commit("discard/ADD", {
+          player: this.round,
+          card: cardPicked,
+        })
         if (this.round + 1 === this.players.length) {
           this.round = 0
           this.draw++
@@ -75,7 +80,7 @@ export default {
       }
     },
     showRiver: function () {
-      this.river = true  
+      this.river = true
     },
   },
 }
