@@ -54,30 +54,28 @@ export default {
   },
   methods: {
     pickACard: function (cardPicked) {
-      if (this.draw < 5) {
-        let argsAddCard = { id: this.round, card: cardPicked }
-        this.$store.commit("players/addcard", argsAddCard)
-        let argsStatePlayer = { id: this.round, state: "Waiting" }
-        this.$store.commit("players/updatePlayerState", argsStatePlayer)
-        this.$store.commit("discard/ADD", {
-          player: this.round,
-          card: cardPicked,
-        })
-        if (this.round + 1 === this.players.length) {
-          this.round = 0
-          this.draw++
-        } else {
-          this.round++
-        }
-        let argsStateNextPlayer = ""
-        if (this.draw > 4) {
-          argsStateNextPlayer = { id: this.round, state: "Waiting" }
-        } else {
-          argsStateNextPlayer = { id: this.round, state: "Playing" }
-          this.name = this.players[this.round].name
-        }
-        this.$store.commit("players/updatePlayerState", argsStateNextPlayer)
+      let argsAddCard = { id: this.round, card: cardPicked }
+      this.$store.commit("players/addcard", argsAddCard)
+      let argsStatePlayer = { id: this.round, state: "Waiting" }
+      this.$store.commit("players/updatePlayerState", argsStatePlayer)
+      this.$store.commit("discard/ADD", {
+        player: this.round,
+        card: cardPicked,
+      })
+      if (this.round + 1 === this.players.length) {
+        this.round = 0
+        this.draw++
+      } else {
+        this.round++
       }
+      let argsStateNextPlayer = ""
+      if (this.draw > 4) {
+        argsStateNextPlayer = { id: this.round, state: "Waiting" }
+      } else {
+        argsStateNextPlayer = { id: this.round, state: "Playing" }
+        this.name = this.players[this.round].name
+      }
+      this.$store.commit("players/updatePlayerState", argsStateNextPlayer)
     },
     showRiver: function () {
       this.river = true
