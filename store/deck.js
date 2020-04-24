@@ -1,4 +1,4 @@
-import Deck from "./../deck.json"
+import Deck from "../static/deck.json"
 
 export const state = () => ({
   deck: Deck,

@@ -59,3 +59,12 @@ $footer-padding : 3rem 1.5rem 4rem;
 .container.has-shadow {
   box-shadow: 0 1px 6px 0 $black;
 }
+
+.icon {
+  &.share-facebook:hover {
+    color: #3b5998 !important;
+  }
+  &.share-twitter:hover {
+    color: #00acee !important;
+  }
+}

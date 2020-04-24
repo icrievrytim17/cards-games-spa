@@ -11,15 +11,24 @@
             height="130"
             alt="Logo"
           />
-          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+          <span
+            class="navbar-burger burger"
+            :class="{ 'is-active': showNavBar }"
+            data-target="navbarMenuHeroA"
+            @click="toogle"
+          >
             <span></span>
             <span></span>
             <span></span>
           </span>
         </div>
-        <div id="navbarMenuHeroA" class="navbar-menu">
+        <div
+          id="navbarMenuHeroA"
+          class="navbar-menu"
+          :class="{ 'is-active': showNavBar }"
+        >
           <div class="navbar-end">
-            <nuxt-link class="navbar-item is-active" to="/">
+            <nuxt-link class="navbar-item is-active" to="/home">
               Home
             </nuxt-link>
             <n-link class="navbar-item" to="/about">
@@ -61,9 +70,20 @@
 <script>
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 export default {
+  data() {
+    return {
+      showNavBar: false,
+    }
+  },
   computed: {
     faGithub() {
       return faGithub
+    },
+  },
+  methods: {
+    toogle() {
+      console.log("toogle")
+      this.showNavBar = !this.showNavBar
     },
   },
 }
