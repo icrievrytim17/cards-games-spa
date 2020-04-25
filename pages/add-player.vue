@@ -77,7 +77,7 @@
               aria-label="Play - Jouer"
               to="/room"
             >
-              Let's dot it
+              Let's do it
             </nuxt-link>
           </div>
         </div>

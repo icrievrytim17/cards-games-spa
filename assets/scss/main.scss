@@ -34,6 +34,8 @@ $colors: (
 
 $footer-padding : 3rem 1.5rem 4rem;
 
+$navbar-item-img-max-height: 5rem;
+
 @import '~bulma';
 
 .has-background-primary-gradient {
@@ -67,4 +69,9 @@ $footer-padding : 3rem 1.5rem 4rem;
   &.share-twitter:hover {
     color: #00acee !important;
   }
+}
+
+.text-opinion {
+  margin-bottom: 0.6em !important;
+  font-size: 0.9em;
 }

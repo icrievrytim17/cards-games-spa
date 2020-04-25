@@ -20,7 +20,7 @@
                       <p class="title is-6 has-text-white">
                         Welcome to our online drinking game! The game is simple,
                         you don’t even have to know the rules... So be ready
-                        with your alcohol drink & play with your friends!
+                        with your alcohol to drink & play with your friends!
                       </p>
                     </div>
                   </div>
@@ -53,7 +53,7 @@
                       <p class="title is-4 has-text-dark">
                         RED OR BLACK
                       </p>
-                      <hr class="primary" />
+                      <hr />
                       <div class="card-image">
                         <figure class="image has-ratio">
                           <img
@@ -69,7 +69,7 @@
                         spades, hearts or diamonds ?
                       </p>
                       <p class="subtitle is-6">
-                        Then there is the river ... Prepare yourself !
+                        Then there is the river ... Prepare yourselves !
                       </p>
                       <div
                         class="field is-grouped is-grouped-multiline has-addons has-addons-centered"
@@ -105,28 +105,41 @@
                     </div>
                   </div>
                   <div class="tile is-parent">
-                    <div class="tile is-child box has-text-centered">
-                      <p class="title is-6">
-                        They played, they
+                    <div class="tile is-child box">
+                      <p class="title is-6 has-text-centered">
+                        They played it, they
                         <fa-icon
                           :icon="faHeart"
                           class="fa-lg has-text-primary"
                         />
                         it, and you will too!
                       </p>
-                      <div class="box">
-                        <article class="media">
-                          <div class="media-content">
-                            <div class="content">
-                              <p class="is-italic">
-                                <strong>John Smith</strong>
-                                <small>@johnsmith</small>
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Aenean efficitur sit amet massa
-                                fringilla egestas.
+                      <div class="card">
+                        <div class="card-content">
+                          <div class="media is-marginless">
+                            <div class="media-left">
+                              <img
+                                src="/people/trump.jpg"
+                                alt="Placeholder image"
+                                width="64"
+                              />
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-6">
+                                Donald Trump
+                              </p>
+                              <p class="subtitle is-7 is-italic">
+                                @donaldtrump
                               </p>
                             </div>
+                          </div>
+                          <div class="content">
+                            <p class="is-italic text-opinion">
+                              Everything bad you read about Play & Drink is fake
+                              news ! Mexican people should create games like
+                              that instead of invading our great country. God
+                              bless you all!
+                            </p>
                             <nav class="level is-mobile">
                               <span class="icon level-item has-text-primary">
                                 <fa-icon :icon="faHeart" class="fa-lg" />
@@ -140,25 +153,39 @@
                               <span class="icon level-item has-text-primary">
                                 <fa-icon :icon="faHeart" class="fa-lg" />
                               </span>
-                              <span class="icon level-item">
+                              <span class="icon level-item has-text-primary">
                                 <fa-icon :icon="faHeart" class="fa-lg" />
                               </span>
                             </nav>
                           </div>
-                        </article>
+                        </div>
                       </div>
-                      <div class="box">
-                        <article class="media">
-                          <div class="media-content">
-                            <div class="content">
-                              <p class="is-italic">
-                                <strong>John Smith</strong>
-                                <small>@johnsmith</small>
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
+                      <br />
+                      <div class="card">
+                        <div class="card-content">
+                          <div class="media is-marginless">
+                            <div class="media-left">
+                              <img
+                                src="/people/depardieu.jpg"
+                                alt="Placeholder image"
+                                width="64"
+                              />
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-6">
+                                Gérard Depardieu
+                              </p>
+                              <p class="subtitle is-7 is-italic">
+                                @geraddepardieu
                               </p>
                             </div>
+                          </div>
+                          <div class="content">
+                            <p class="is-italic text-opinion">
+                              Je pensais que mes 5 litrons de rougeot allaient
+                              me tenir la journée mais c'était avant de jouer à
+                              Play & Drink ...
+                            </p>
                             <nav class="level is-mobile">
                               <span class="icon level-item has-text-primary">
                                 <fa-icon :icon="faHeart" class="fa-lg" />
@@ -177,20 +204,35 @@
                               </span>
                             </nav>
                           </div>
-                        </article>
+                        </div>
                       </div>
-                      <div class="box">
-                        <article class="media">
-                          <div class="media-content">
-                            <div class="content">
-                              <p class="is-italic">
-                                <strong>John Smith</strong>
-                                <small>@johnsmith</small>
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
+                      <br />
+                      <div class="card">
+                        <div class="card-content">
+                          <div class="media is-marginless">
+                            <div class="media-left">
+                              <img
+                                src="/people/rolland.jpg"
+                                alt="Placeholder image"
+                                width="35"
+                              />
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-6">
+                                Thierry Rolland
+                              </p>
+                              <p class="subtitle is-7 is-italic">
+                                @thierryrolland
                               </p>
                             </div>
+                          </div>
+                          <div class="content">
+                            <p class="is-italic text-opinion">
+                              Ha putain quel pied ! La naissance de ce site m'a
+                              fait renaitre d'entre les morts, aucun doute,
+                              après une partie de Play & Drink on peut mourrir
+                              tranquille !
+                            </p>
                             <nav class="level is-mobile">
                               <span class="icon level-item has-text-primary">
                                 <fa-icon :icon="faHeart" class="fa-lg" />
@@ -209,7 +251,7 @@
                               </span>
                             </nav>
                           </div>
-                        </article>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -225,11 +267,7 @@
 <script>
 import { faHandPeace } from "@fortawesome/free-regular-svg-icons"
 import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons"
-import {
-  faStar,
-  faHeart,
-  faPlayCircle,
-} from "@fortawesome/free-solid-svg-icons"
+import { faHeart, faPlayCircle } from "@fortawesome/free-solid-svg-icons"
 
 export default {
   computed: {
@@ -241,9 +279,6 @@ export default {
     },
     faFacebook() {
       return faFacebook
-    },
-    faStarSolid() {
-      return faStar
     },
     faHeart() {
       return faHeart
