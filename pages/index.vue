@@ -18,7 +18,7 @@
           <div class="level-item">
             <fa-icon :icon="faChild" class="fa-2x has-text-primary" />
             &nbsp; &nbsp;
-            <p>Everyone playing is over the age of 18</p>
+            <p>Every player must be over 18</p>
           </div>
         </div>
         <div class="level">
@@ -32,7 +32,7 @@
           <div class="level-item">
             <fa-icon :icon="faHandshake" class="fa-2x has-text-primary" />
             &nbsp; &nbsp;
-            <p>Agree to this rules</p>
+            <p>Agree to these rules</p>
           </div>
         </div>
         <br />

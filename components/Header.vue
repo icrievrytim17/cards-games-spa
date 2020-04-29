@@ -4,13 +4,15 @@
     <nav class="navbar has-shadow">
       <div class="container">
         <div class="navbar-brand">
-          <img
-            class="LogoAnimation"
-            src="/logo-2.png"
-            width="225"
-            height="130"
-            alt="Logo"
-          />
+          <nuxt-link class="navbar-item" to="/home">
+            <img
+              class="LogoAnimation"
+              src="/logo-2.png"
+              width="225"
+              height="130"
+              alt="Logo"
+            />
+          </nuxt-link>
           <span
             class="navbar-burger burger"
             :class="{ 'is-active': showNavBar }"
@@ -45,6 +47,17 @@
                 </span>
                 <span>Github</span>
               </a>
+            </span>
+            <span class="navbar-item">
+              <img
+                src="/united-kingdom.png"
+                width="25"
+                height="25"
+                alt="Logo"
+              />
+            </span>
+            <span class="navbar-item">
+              <img src="/france.png" width="25" height="25" alt="Logo" />
             </span>
           </div>
         </div>
