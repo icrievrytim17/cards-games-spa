@@ -2,6 +2,7 @@
 ** Doc : https://dev.to/overscoremedia/use-bulma-and-fontawesome-5-with-nuxt-js-11le
 */
 @import "~bulma/sass/utilities/_all";
+@import "table.scss";
 
 $primary: #96031A;
 $primary-invert: findColorInvert($primary);
@@ -75,3 +76,4 @@ $navbar-item-img-max-height: 5rem;
   margin-bottom: 0.6em !important;
   font-size: 0.9em;
 }
+
