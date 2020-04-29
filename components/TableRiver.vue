@@ -13,14 +13,14 @@
           <div v-if="round !== 0">
             <div v-for="player in drinker" :key="player.id">
               <p v-if="!give">
-                {{ player.name }} prends {{ player.count * sip }}
-                <span v-if="sip === 1">gorgée</span>
-                <span v-if="sip !== 1">gorgées</span>
+                {{ player.name }} prends {{ player.sip }}
+                <span v-if="player.sip === 1">gorgée</span>
+                <span v-if="player.sip > 1">gorgées</span>
               </p>
               <p v-if="give">
-                {{ player.name }} donne <span>{{ player.count * sip }}</span>
-                <span v-if="sip === 1">gorgée</span>
-                <span v-if="sip !== 1">gorgées</span>
+                {{ player.name }} donne <span>{{ player.sip }}</span>
+                <span v-if="player.sip === 1">gorgée</span>
+                <span v-if="player.sip > 1">gorgées</span>
               </p>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default {
     return {
       card: "",
       sip: 1,
-      round: 0,
+      round: 1,
       give: false,
       drinker: [],
       draw: 0,
@@ -75,7 +75,7 @@ export default {
       this.getDrinker() // get which player will drink at every round
       if (this.drinker.length !== 0) {
         // if nobody give or take, dont go to the next round, pick again
-        if (this.round !== 0) {
+        if (this.round !== 1) {
           this.give = !this.give // switch give to take but not in the first pick
         }
         this.round++
@@ -105,6 +105,7 @@ export default {
                 } else {
                   drinker.count++
                 }
+                drinker.sip = this.sip * drinker.count
               }
             }
           }
@@ -117,6 +118,7 @@ export default {
               id: index,
               name: this.players[index].name,
               count: count,
+              sip: this.sip * count,
             })
           }
         }

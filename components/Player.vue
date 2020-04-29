@@ -1,21 +1,23 @@
 <template>
-  <div class="card">
+  <div :class="{ 'card-border': player.state === 'Playing' }" class="card">
     <header class="card-header">
-      <p class="card-header-title">
+      <p class="card-header-title is-centered">
         {{ player.name }}
       </p>
     </header>
     <div class="card-content">
       <div class="media">
         <div
-          v-for="playerCard in player.cards"
+          v-for="(playerCard, index) in player.cards"
           :key="playerCard.id"
           class="media-content"
         >
           <img
-            :width="widthCard"
+            width="85px"
+            height="135px"
             :src="getImgUrl(playerCard.png)"
             :alt="playerCard.number"
+            :class="'player-card' + index"
           />
         </div>
       </div>

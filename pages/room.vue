@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="columns is-multiline is-mobile is-marginless">
-      <div class="column is-half">
+      <div class="column is-one-third">
         <Table
           v-if="!river"
           :draw="draw"

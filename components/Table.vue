@@ -1,107 +1,126 @@
 <template>
   <div class="card">
     <div class="card-content">
-      <div>
-        <br />
-        <img width="30%" :src="getImgUrl(card.png)" :alt="card.name" />
+      <div class="has-text-centered">
+        <img width="40%" :src="getImgUrl(card.png)" :alt="card.name" />
       </div>
-      <br />
-      <div v-if="showPickResult" class="content">
-        {{ lastPlayer }} <strong>{{ pickResult }}</strong>
+      <div v-if="showPickResult" class="has-text-centered">
+        <p class="content is-medium is-marginless">
+          <strong>{{ pickResult }}</strong>
+        </p>
         <p v-if="pickResult === 'Perdu'">
-          Prend {{ sip }}
+          {{ lastPlayer }} prend {{ sip }}
           <span v-if="sip === 1">gorgée</span>
           <span v-if="sip !== 1">gorgées</span>
         </p>
         <p v-if="pickResult === 'Gagné'">
-          Donne {{ sip }}
+          {{ lastPlayer }} donne {{ sip }}
           <span v-if="sip === 1">gorgée</span>
           <span v-if="sip !== 1">gorgées</span>
         </p>
       </div>
-      <div v-if="player.name != '' && draw < 4" class="content">
+      <hr v-if="showPickResult" />
+      <div v-if="player.name != '' && draw < 5" class="has-text-centered">
         C'est au tour de <strong>{{ player.name }}</strong>
         <br />
-        <span v-if="draw === 1">
+        <span v-if="draw === 1" class="content is-medium">
           Rouge ou noir
         </span>
-        <span v-if="draw === 2">
+        <span v-if="draw === 2" class="content is-medium">
           Plus ou moins que {{ sortedCards[0].name }}
         </span>
-        <span v-if="draw === 3">
-          A l'intérieur de {{ sortedCards[0].name }} et
+        <span v-if="draw === 3" class="content is-medium">
+          Intérieur entre {{ sortedCards[0].name }} et
           {{ sortedCards[1].name }} ou à l'extérieur
         </span>
-        <span v-if="draw === 4">
+        <span v-if="draw === 4" class="content is-medium">
           Coeur, Carreau, Trèfle ou Pique
         </span>
       </div>
-      <div v-if="draw === 1">
-        <button
-          class="button is-primary is-medium is-rounded"
-          @click="distribute('rouge')"
-        >
-          Rouge
-        </button>
-        <button
-          class="button is-dark is-medium is-rounded"
-          @click="distribute('noir')"
-        >
-          Noir
-        </button>
+      <br />
+      <div v-if="draw === 1" class="has-text-centered">
+        <div class="">
+          <button
+            class="button is-primary is-medium is-table"
+            @click="distribute('rouge')"
+          >
+            Rouge
+          </button>
+          <button
+            class="button is-dark is-medium is-table"
+            @click="distribute('noir')"
+          >
+            Noir
+          </button>
+        </div>
       </div>
-      <div v-if="draw === 2">
-        <button
-          class="button is-dark is-medium is-rounded"
-          @click="distribute('plus')"
-        >
-          Plus
-        </button>
-        <button
-          class="button is-dark is-medium is-rounded"
-          @click="distribute('moins')"
-        >
-          Moins
-        </button>
+      <div v-if="draw === 2" class="columns is-centered">
+        <div class="column is-half">
+          <div class="field is-grouped">
+            <button
+              class="level-item button is-dark is-medium is-table"
+              @click="distribute('moins')"
+            >
+              <span class="icon">
+                <fa-icon :icon="faMinus" />
+              </span>
+            </button>
+            <button
+              class="level-item button is-dark is-medium is-table"
+              @click="distribute('plus')"
+            >
+              <span class="icon">
+                <fa-icon :icon="faPlus" />
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-      <div v-if="draw === 3">
-        <button
-          class="button is-dark is-medium is-rounded"
-          @click="distribute('int')"
-        >
-          Intérieur
-        </button>
-        <button
-          class="button is-dark is-medium is-rounded"
-          @click="distribute('ext')"
-        >
-          Extérieur
-        </button>
+      <div v-if="draw === 3" class="columns is-centered">
+        <div class="column is-half">
+          <div class="field is-grouped">
+            <button
+              class="button is-dark is-medium is-table"
+              @click="distribute('int')"
+            >
+              Intérieur
+            </button>
+            <button
+              class="button is-dark is-medium is-table"
+              @click="distribute('ext')"
+            >
+              Extérieur
+            </button>
+          </div>
+        </div>
       </div>
-      <div v-if="draw === 4">
+      <div v-if="draw === 4" class="has-text-centered">
+        <div class="">
+          <button
+            class="button is-primary is-medium is-table"
+            @click="distribute('coeur')"
+          >
+            <img src="/heart.png" width="50%" alt="Coeur" />
+          </button>
+          <button
+            class="button is-primary is-medium is-table"
+            @click="distribute('carreau')"
+          >
+            <img src="/diamond.png" width="50%" alt="Carreau" />
+          </button>
+        </div>
+        <br />
         <button
-          class="button is-dark is-medium is-rounded"
-          @click="distribute('coeur')"
-        >
-          Coeur
-        </button>
-        <button
-          class="button is-dark is-medium is-rounded"
-          @click="distribute('carreau')"
-        >
-          Carreau
-        </button>
-        <button
-          class="button is-dark is-medium is-rounded"
+          class="button is-dark is-medium is-table"
           @click="distribute('trefle')"
         >
-          Trèfle
+          <img src="/clover.png" width="50%" alt="Trefle" />
         </button>
         <button
-          class="button is-dark is-medium is-rounded"
+          class="button is-dark is-medium is-table"
           @click="distribute('pique')"
         >
-          Pique
+          <img src="/spade.png" width="50%" alt="Pique" />
         </button>
       </div>
       <button
@@ -118,6 +137,7 @@
 <script>
 import _sortBy from "lodash.sortby"
 import { mapGetters } from "vuex"
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
 export default {
   props: {
     player: {
@@ -145,6 +165,12 @@ export default {
     }),
     sortedCards: function () {
       return _sortBy(this.player.cards, "number")
+    },
+    faPlus() {
+      return faPlus
+    },
+    faMinus() {
+      return faMinus
     },
   },
   methods: {

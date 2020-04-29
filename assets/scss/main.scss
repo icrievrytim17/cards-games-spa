@@ -2,6 +2,7 @@
 ** Doc : https://dev.to/overscoremedia/use-bulma-and-fontawesome-5-with-nuxt-js-11le
 */
 @import "~bulma/sass/utilities/_all";
+@import "table.scss";
 
 $primary: #96031A;
 $primary-invert: findColorInvert($primary);
@@ -67,4 +68,7 @@ $footer-padding : 3rem 1.5rem 4rem;
   &.share-twitter:hover {
     color: #00acee !important;
   }
+}
+.card-border {
+  border: 4px solid $black;
 }
