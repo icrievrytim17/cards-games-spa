@@ -1,7 +1,6 @@
-import Deck from "../static/deck.json"
 
 export const state = () => ({
-  deck: Deck,
+  deck: [],
 })
 
 export const mutations = {
@@ -9,8 +8,12 @@ export const mutations = {
   SPLICE(state, key) {
     state.deck.splice(key, 1)
   },
-  SET(state, deck) {
-    state.deck = deck
+  add(state, card) {
+    state.deck.push(card)
+  },
+  //clear the deck
+  clear(state) {
+    state.deck = []
   },
 }
 
