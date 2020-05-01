@@ -1,4 +1,3 @@
-
 export const state = () => ({
   deck: [],
 })
@@ -8,11 +7,11 @@ export const mutations = {
   SPLICE(state, key) {
     state.deck.splice(key, 1)
   },
-  add(state, card) {
+  ADD(state, card) {
     state.deck.push(card)
   },
   //clear the deck
-  clear(state) {
+  CLEAR(state) {
     state.deck = []
   },
 }

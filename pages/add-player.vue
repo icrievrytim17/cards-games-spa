@@ -176,10 +176,12 @@ export default {
     //when arriving on this page, we clear the players in the store
     this.$store.commit("players/clear")
     //clear the deck
-    this.$store.commit("deck/clear")
+    this.$store.commit("deck/CLEAR")
+    //clear the discard
+    this.$store.commit("discard/CLEAR")
     //fill the deck with all the cards
     for (var i = 0; i < DeckJson.length; i++) {
-      this.$store.commit("deck/add", DeckJson[i])
+      this.$store.commit("deck/ADD", DeckJson[i])
     }
   },
   methods: {

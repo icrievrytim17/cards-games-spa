@@ -10,6 +10,10 @@ export const mutations = {
   ADD(state, card) {
     state.list.push(card)
   },
+  //clear the list
+  CLEAR(state) {
+    state.list = []
+  },
 }
 
 export const getters = {
