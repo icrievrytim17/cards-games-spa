@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <div class="card-content">
-      <div class="has-text-centered">
+    <div class="card-content has-text-centered">
+      <div class="">
         <img width="40%" :src="getImgUrl(card.png)" :alt="card.name" />
       </div>
       <div v-if="showPickResult" class="has-text-centered">
@@ -123,13 +123,14 @@
           <img src="/spade.png" width="50%" alt="Pique" />
         </button>
       </div>
-      <button
-        v-if="draw === 5"
-        class="button is-primary is-medium is-rounded"
-        @click="goToRiver"
-      >
-        Passer à la rivière
-      </button>
+      <div v-if="draw === 5" class="columns is-centered">
+        <button
+          class="button is-primary is-medium is-rounded"
+          @click="goToRiver"
+        >
+          Passer à la rivière
+        </button>
+      </div>
     </div>
   </div>
 </template>

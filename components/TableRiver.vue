@@ -1,40 +1,53 @@
 <template>
   <div class="card">
-    <div class="card-content">
-      <div>
-        <br />
-        <img width="30%" :src="getImgUrl(card.png)" :alt="card.number" />
+    <div class="card-content has-text-centered">
+      <h3 v-if="draw === 0" class="title is-3">Rivière</h3>
+      <div v-if="draw > 0">
+        <img width="40%" :src="getImgUrl(card.png)" :alt="card.number" />
       </div>
       <br />
-      <div>
-        <div class="content">
-          <strong>Rivière</strong>
-          <br />
-          <div v-if="round !== 0">
-            <div v-for="player in drinker" :key="player.id">
-              <p v-if="!give">
-                {{ player.name }} prends {{ player.sip }}
-                <span v-if="player.sip === 1">gorgée</span>
-                <span v-if="player.sip > 1">gorgées</span>
-              </p>
-              <p v-if="give">
-                {{ player.name }} donne <span>{{ player.sip }}</span>
-                <span v-if="player.sip === 1">gorgée</span>
-                <span v-if="player.sip > 1">gorgées</span>
-              </p>
-            </div>
+      <div class="content">
+        <div v-if="round !== 0 && draw > 0">
+          <div v-for="player in drinker" :key="player.id">
+            <p v-if="!give">
+              {{ player.name }} prends {{ player.sip }}
+              <span v-if="player.sip === 1">gorgée</span>
+              <span v-if="player.sip > 1">gorgées</span>
+            </p>
+            <p v-if="give">
+              {{ player.name }} donne <span>{{ player.sip }}</span>
+              <span v-if="player.sip === 1">gorgée</span>
+              <span v-if="player.sip > 1">gorgées</span>
+            </p>
           </div>
         </div>
+        <br v-if="draw <= 11" />
         <button
-          v-if="deck.length > 0 && draw <= 11"
-          class="button is-dark is-medium is-rounded"
+          v-if="deck.length > 0 && draw === 0"
+          class="button is-dark is-medium"
+          @click="pick"
+        >
+          Commencer
+        </button>
+        <button
+          v-if="deck.length > 0 && draw > 0 && draw <= 11"
+          class="button is-dark is-medium"
           @click="pick"
         >
           Tirer une carte
         </button>
-        <p v-if="deck.length === 0 || draw > 11">
-          C'est terminé. Merci d'avoir joué.
-        </p>
+        <div v-if="deck.length === 0 || draw > 11">
+          <hr />
+          <p class="content is-medium">
+            C'est terminé. Merci d'avoir joué.
+          </p>
+          <nuxt-link
+            to="/add-player"
+            class="button is-primary is-medium is-rounded"
+          >
+            <span>Nouvelle partie</span>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
