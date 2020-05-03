@@ -1,9 +1,12 @@
 <template>
   <div class="card">
     <div class="card-content has-text-centered">
-      <div class="">
+      <div v-if="showPickResult" class="">
         <img width="40%" :src="getImgUrl(card.png)" :alt="card.name" />
       </div>
+      <h3 v-if="!showPickResult" class="title is-3">
+        Début de la distribution
+      </h3>
       <div v-if="showPickResult" class="has-text-centered">
         <p class="content is-medium is-marginless">
           <strong>{{ pickResult }}</strong>
@@ -19,7 +22,7 @@
           <span v-if="sip !== 1">gorgées</span>
         </p>
       </div>
-      <hr v-if="showPickResult" />
+      <hr />
       <div v-if="player.name != '' && draw < 5" class="has-text-centered">
         C'est au tour de <strong>{{ player.name }}</strong>
         <br />
@@ -65,6 +68,33 @@
                 <fa-icon :icon="faMinus" />
               </span>
             </button>
+            <div class="level-item has-background-black has-text-white">
+              {{ sortedCards[0].name }} &nbsp;
+              <img
+                v-if="sortedCards[0].sign === 'coeur'"
+                src="/heart.png"
+                width="20%"
+                alt="Coeur"
+              />
+              <img
+                v-if="sortedCards[0].sign === 'carreau'"
+                src="/diamond.png"
+                width="20%"
+                alt="Carreau"
+              />
+              <img
+                v-if="sortedCards[0].sign === 'trefle'"
+                src="/clover.png"
+                width="20%"
+                alt="Trefle"
+              />
+              <img
+                v-if="sortedCards[0].sign === 'pique'"
+                src="/spade.png"
+                width="20%"
+                alt="Pique"
+              />
+            </div>
             <button
               class="level-item button is-dark is-medium is-table"
               @click="distribute('plus')"

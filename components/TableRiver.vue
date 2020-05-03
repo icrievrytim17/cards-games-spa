@@ -1,10 +1,12 @@
 <template>
   <div class="card">
     <div class="card-content has-text-centered">
-      <h3 v-if="draw === 0" class="title is-3">Rivière</h3>
       <div v-if="draw > 0">
         <img width="40%" :src="getImgUrl(card.png)" :alt="card.number" />
       </div>
+      <h3 v-if="draw === 0" class="title is-3">
+        Début de la Rivière
+      </h3>
       <br />
       <div class="content">
         <div v-if="round !== 0 && draw > 0">
@@ -91,6 +93,7 @@ export default {
         if (this.round !== 1) {
           this.give = !this.give // switch give to take but not in the first pick
         }
+        this.updateStatusDrinker()
         this.round++
         if (this.round > 1 && this.round % 2) {
           // sip++ every two rounds
@@ -103,6 +106,7 @@ export default {
     },
     getDrinker: function () {
       this.drinker = [] // empty initialise for every round
+      this.resetDrinker()
       for (const element of this.discard) {
         if (element.card.number === this.card.number) {
           var index = element.player // get id player in discard array
@@ -135,6 +139,24 @@ export default {
             })
           }
         }
+      }
+    },
+    resetDrinker() {
+      for (const player of this.players) {
+        console.log(player)
+        var argsStatePlayer = { id: player.id, state: "Waiting" }
+        this.$store.commit("players/updatePlayerState", argsStatePlayer)
+      }
+    },
+    updateStatusDrinker() {
+      var argsStatePlayer
+      for (const drinker of this.drinker) {
+        if (this.give) {
+          argsStatePlayer = { id: drinker.id, state: "Give" }
+        } else {
+          argsStatePlayer = { id: drinker.id, state: "Drink" }
+        }
+        this.$store.commit("players/updatePlayerState", argsStatePlayer)
       }
     },
     getImgUrl(imageName) {

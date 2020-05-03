@@ -1,11 +1,11 @@
 <template>
-  <div :class="{ 'card-border': player.state === 'Playing' }" class="card">
+  <div class="card">
     <header class="card-header">
       <p class="card-header-title is-centered">
         {{ player.name }}
       </p>
     </header>
-    <div class="card-content">
+    <div class="card-content has-text-centered">
       <div class="media">
         <div
           v-for="(playerCard, index) in player.cards"
@@ -21,7 +21,10 @@
           />
         </div>
       </div>
-      <div class="content">
+      <div
+        :class="{ 'has-text-weight-bold': player.state != 'Waiting' }"
+        class="content is-medium"
+      >
         {{ player.state }}
       </div>
     </div>

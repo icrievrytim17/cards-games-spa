@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="columns is-multiline is-mobile is-marginless">
-      <div class="column is-one-third">
+      <div class="column is-one-third-desktop is-full-mobile">
         <Table
           v-if="!river"
           :draw="draw"
@@ -14,7 +14,7 @@
       <div
         v-for="player in players"
         :key="player.id"
-        class="column is-one-quarter"
+        class="column is-one-fifth-desktop is-full-mobile"
       >
         <Player :player="player" />
       </div>
