@@ -5,39 +5,39 @@
         <img width="40%" :src="getImgUrl(card.png)" :alt="card.name" />
       </div>
       <h3 v-if="!showPickResult" class="title is-3">
-        Début de la distribution
+        Start the distribution
       </h3>
       <div v-if="showPickResult" class="has-text-centered">
         <p class="content is-medium is-marginless">
           <strong>{{ pickResult }}</strong>
         </p>
-        <p v-if="pickResult === 'Perdu'">
-          {{ lastPlayer }} prend {{ sip }}
-          <span v-if="sip === 1">gorgée</span>
-          <span v-if="sip !== 1">gorgées</span>
+        <p v-if="pickResult === 'Fail'">
+          {{ lastPlayer }} drink {{ sip }}
+          <span v-if="sip === 1">sip</span>
+          <span v-if="sip !== 1">sips</span>
         </p>
-        <p v-if="pickResult === 'Gagné'">
-          {{ lastPlayer }} donne {{ sip }}
-          <span v-if="sip === 1">gorgée</span>
-          <span v-if="sip !== 1">gorgées</span>
+        <p v-if="pickResult === 'Win'">
+          {{ lastPlayer }} give {{ sip }}
+          <span v-if="sip === 1">sip</span>
+          <span v-if="sip !== 1">sips</span>
         </p>
       </div>
       <hr />
       <div v-if="player.name != '' && draw < 5" class="has-text-centered">
-        C'est au tour de <strong>{{ player.name }}</strong>
+        It's <strong>{{ player.name }}</strong>
+        's turn
         <br />
         <span v-if="draw === 1" class="content is-medium">
-          Rouge ou noir
+          Red or Black
         </span>
         <span v-if="draw === 2" class="content is-medium">
-          Plus ou moins que {{ sortedCards[0].name }}
+          More or less than {{ sortedCards[0].name }}
         </span>
         <span v-if="draw === 3" class="content is-medium">
-          Intérieur entre {{ sortedCards[0].name }} et
-          {{ sortedCards[1].name }} ou à l'extérieur
+          Between {{ sortedCards[0].name }} and {{ sortedCards[1].name }} or out
         </span>
         <span v-if="draw === 4" class="content is-medium">
-          Coeur, Carreau, Trèfle ou Pique
+          Hearts, Diamonds, Clubs or Spades
         </span>
       </div>
       <br />
@@ -47,13 +47,13 @@
             class="button is-primary is-medium is-table"
             @click="distribute('rouge')"
           >
-            Rouge
+            Red
           </button>
           <button
             class="button is-dark is-medium is-table"
             @click="distribute('noir')"
           >
-            Noir
+            Black
           </button>
         </div>
       </div>
@@ -158,7 +158,7 @@
           class="button is-primary is-medium is-rounded"
           @click="goToRiver"
         >
-          Passer à la rivière
+          Go to the river
         </button>
       </div>
     </div>
@@ -219,7 +219,7 @@ export default {
       var result = ""
       this.lastPlayer = this.player.name
       this.showPickResult = true
-      this.pickResult = "Perdu"
+      this.pickResult = "Fail"
       if (this.draw === 1) {
         console.log("Premier tirage Rouge ou Noir")
         result = this.card.color
@@ -244,7 +244,7 @@ export default {
         result = this.card.sign
       }
       if (choice === result) {
-        this.pickResult = "Gagné"
+        this.pickResult = "Win"
       }
       this.sip = this.draw
     },

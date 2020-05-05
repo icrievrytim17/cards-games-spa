@@ -5,21 +5,21 @@
         <img width="40%" :src="getImgUrl(card.png)" :alt="card.number" />
       </div>
       <h3 v-if="draw === 0" class="title is-3">
-        Début de la Rivière
+        Start the river
       </h3>
       <br />
       <div class="content">
         <div v-if="round !== 0 && draw > 0">
           <div v-for="player in drinker" :key="player.id">
             <p v-if="!give">
-              {{ player.name }} prends {{ player.sip }}
-              <span v-if="player.sip === 1">gorgée</span>
-              <span v-if="player.sip > 1">gorgées</span>
+              {{ player.name }} drink {{ player.sip }}
+              <span v-if="player.sip === 1">sip</span>
+              <span v-if="player.sip > 1">sips</span>
             </p>
             <p v-if="give">
-              {{ player.name }} donne <span>{{ player.sip }}</span>
-              <span v-if="player.sip === 1">gorgée</span>
-              <span v-if="player.sip > 1">gorgées</span>
+              {{ player.name }} give <span>{{ player.sip }}</span>
+              <span v-if="player.sip === 1">sip</span>
+              <span v-if="player.sip > 1">sips</span>
             </p>
           </div>
         </div>
@@ -29,25 +29,25 @@
           class="button is-dark is-medium"
           @click="pick"
         >
-          Commencer
+          Start
         </button>
         <button
           v-if="deck.length > 0 && draw > 0 && draw <= 11"
           class="button is-dark is-medium"
           @click="pick"
         >
-          Tirer une carte
+          Pick a card
         </button>
         <div v-if="deck.length === 0 || draw > 11">
           <hr />
           <p class="content is-medium">
-            C'est terminé. Merci d'avoir joué.
+            It's over. Thanks to have play.
           </p>
           <nuxt-link
             to="/add-player"
             class="button is-primary is-medium is-rounded"
           >
-            <span>Nouvelle partie</span>
+            <span>Restart</span>
           </nuxt-link>
         </div>
       </div>
@@ -143,7 +143,6 @@ export default {
     },
     resetDrinker() {
       for (const player of this.players) {
-        console.log(player)
         var argsStatePlayer = { id: player.id, state: "Waiting" }
         this.$store.commit("players/updatePlayerState", argsStatePlayer)
       }

@@ -1,5 +1,11 @@
 <template>
-  <div class="card">
+  <div
+    :class="{
+      'player-drink': player.state === 'Drink',
+      'player-give': player.state === 'Give',
+    }"
+    class="card"
+  >
     <header class="card-header">
       <p class="card-header-title is-centered">
         {{ player.name }}
