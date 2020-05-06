@@ -17,7 +17,7 @@
         class="column is-one-fifth-desktop is-full-mobile"
       >
         <!-- attribut :key to force re-render -->
-        <Player :key="componentKey" :player="player" /> 
+        <Player :key="componentKey" :player="player" />
       </div>
     </div>
   </div>
