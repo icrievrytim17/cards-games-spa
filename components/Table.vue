@@ -57,73 +57,40 @@
           </button>
         </div>
       </div>
-      <div v-if="draw === 2" class="columns is-centered">
-        <div class="column is-half">
-          <div class="field is-grouped">
-            <button
-              class="level-item button is-dark is-medium is-table"
-              @click="distribute('moins')"
-            >
-              <span class="icon">
-                <fa-icon :icon="faMinus" />
-              </span>
-            </button>
-            <div class="level-item has-background-black has-text-white">
-              {{ sortedCards[0].name }} &nbsp;
-              <img
-                v-if="sortedCards[0].sign === 'coeur'"
-                src="/heart.png"
-                width="20%"
-                alt="Coeur"
-              />
-              <img
-                v-if="sortedCards[0].sign === 'carreau'"
-                src="/diamond.png"
-                width="20%"
-                alt="Carreau"
-              />
-              <img
-                v-if="sortedCards[0].sign === 'trefle'"
-                src="/clover.png"
-                width="20%"
-                alt="Trefle"
-              />
-              <img
-                v-if="sortedCards[0].sign === 'pique'"
-                src="/spade.png"
-                width="20%"
-                alt="Pique"
-              />
-            </div>
-            <button
-              class="level-item button is-dark is-medium is-table"
-              @click="distribute('plus')"
-            >
-              <span class="icon">
-                <fa-icon :icon="faPlus" />
-              </span>
-            </button>
-          </div>
-        </div>
+      <div v-if="draw === 2" class="has-text-centered">
+        <button
+          class="button is-dark is-medium is-table"
+          @click="distribute('moins')"
+        >
+          <span class="icon">
+            <fa-icon :icon="faMinus" />
+          </span>
+        </button>
+        <button
+          class="button is-dark is-medium is-table"
+          @click="distribute('plus')"
+        >
+          <span class="icon">
+            <fa-icon :icon="faPlus" />
+          </span>
+        </button>
       </div>
-      <div v-if="draw === 3" class="columns is-centered">
-        <div class="column is-half">
-          <div class="field is-grouped">
-            <button
-              class="button is-dark is-medium is-table"
-              @click="distribute('int')"
-            >
-              Intérieur
-            </button>
-            <button
-              class="button is-dark is-medium is-table"
-              @click="distribute('ext')"
-            >
-              Extérieur
-            </button>
-          </div>
-        </div>
+      <!-- eslint-disable -->
+      <div v-if="draw === 3" class="has-text-centered">
+        <button
+          class="button is-dark is-medium is-table"
+          @click="distribute('int')"
+        >
+          In
+        </button>
+        <button
+          class="button is-dark is-medium is-table"
+          @click="distribute('ext')"
+        >
+          Out
+        </button>
       </div>
+      <!-- eslint-enable -->
       <div v-if="draw === 4" class="has-text-centered">
         <div class="">
           <button

@@ -9,14 +9,15 @@
           @pick="pickACard"
           @go-river="showRiver"
         />
-        <TableRiver v-if="river" :player-name="name" @pick="pickACard" />
+        <TableRiver v-if="river" :player-name="name" @render="forceRender" />
       </div>
       <div
         v-for="player in players"
         :key="player.id"
         class="column is-one-fifth-desktop is-full-mobile"
       >
-        <Player :player="player" />
+        <!-- attribut :key to force re-render -->
+        <Player :key="componentKey" :player="player" /> 
       </div>
     </div>
   </div>
@@ -40,6 +41,7 @@ export default {
       draw: 1,
       river: false,
       name: "",
+      componentKey: 0, // data for re-render
     }
   },
   computed: {
@@ -79,6 +81,9 @@ export default {
     },
     showRiver: function () {
       this.river = true
+    },
+    forceRender: function () {
+      this.componentKey += 1 // data to force re-render for the vibration execution
     },
   },
 }

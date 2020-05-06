@@ -100,6 +100,7 @@ export default {
           this.sip++
         }
         this.draw++ // draw++ when someone take or give sip. 12 draws max
+        this.$emit("render", this.card)
       } else {
         this.pick() // pick a new card if nobody take or give sup
       }
