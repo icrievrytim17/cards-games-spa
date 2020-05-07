@@ -91,13 +91,15 @@ export default {
   methods: {
     pick: function () {
       var chosenNumber = Math.floor(Math.random() * this.deck.length)
+      console.log(this.deck.length)
       this.card = this.deck[chosenNumber] // pick the card in the deck
       this.$store.commit("deck/SPLICE", chosenNumber) // remove the card in the deck
       this.getDrinker() // get which player will drink at every round
-      console.log("REST :" + this.getNoRest)
-      console.log("DoubleColor :" + this.doubleColor)
-      console.log("All cards :" + this.getAllCards)
-      if (this.drinker.length !== 0 || !this.getNoRest) {
+      if (
+        this.deck.length === 0 ||
+        this.drinker.length !== 0 ||
+        !this.getNoRest
+      ) {
         // getNoRest negation to redraw
         // if nobody give or take, dont go to the next round, pick again
         if (this.round !== 1) {
