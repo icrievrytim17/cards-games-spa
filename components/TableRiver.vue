@@ -9,7 +9,7 @@
       </h3>
       <br />
       <div class="content">
-        <div v-if="round !== 0 && draw > 0">
+        <div v-if="round !== 0 && draw > 0 && drinker.length > 0">
           <div v-for="player in drinker" :key="player.id">
             <p v-if="!give">
               {{ player.name }} drink {{ player.sip }}
@@ -23,7 +23,10 @@
             </p>
           </div>
         </div>
-        <br v-if="draw <= 11" />
+        <div v-if="round !== 0 && draw > 0 && drinker.length === 0">
+          Nobody drink
+        </div>
+        <br v-if="draw <= 11 || getAllCards" />
         <button
           v-if="deck.length > 0 && draw === 0"
           class="button is-dark is-medium"
@@ -32,13 +35,13 @@
           Start
         </button>
         <button
-          v-if="deck.length > 0 && draw > 0 && draw <= 11"
+          v-if="deck.length > 0 && draw > 0 && (getAllCards || draw <= 11)"
           class="button is-dark is-medium"
           @click="pick"
         >
           Pick a card
         </button>
-        <div v-if="deck.length === 0 || draw > 11">
+        <div v-if="deck.length === 0 || (!getAllCards && draw > 11)">
           <hr />
           <p class="content is-medium">
             It's over. Thanks to have play.
@@ -80,6 +83,9 @@ export default {
       deck: "deck/get",
       players: "players/get",
       discard: "discard/get",
+      doubleColor: "options/getDoubleColor",
+      getAllCards: "options/getAllCard",
+      getNoRest: "options/getNoRest",
     }),
   },
   methods: {
@@ -88,7 +94,11 @@ export default {
       this.card = this.deck[chosenNumber] // pick the card in the deck
       this.$store.commit("deck/SPLICE", chosenNumber) // remove the card in the deck
       this.getDrinker() // get which player will drink at every round
-      if (this.drinker.length !== 0) {
+      console.log("REST :" + this.getNoRest)
+      console.log("DoubleColor :" + this.doubleColor)
+      console.log("All cards :" + this.getAllCards)
+      if (this.drinker.length !== 0 || !this.getNoRest) {
+        // getNoRest negation to redraw
         // if nobody give or take, dont go to the next round, pick again
         if (this.round !== 1) {
           this.give = !this.give // switch give to take but not in the first pick
@@ -118,7 +128,10 @@ export default {
               if (drinker.id === index) {
                 // if we have the same player in the array
                 find = true
-                if (element.card.color === this.card.color) {
+                if (
+                  element.card.color === this.card.color &&
+                  this.doubleColor
+                ) {
                   drinker.count = drinker.count + 2
                 } else {
                   drinker.count++
@@ -129,7 +142,7 @@ export default {
           }
           if (!find) {
             var count = 1
-            if (element.card.color === this.card.color) {
+            if (element.card.color === this.card.color && this.doubleColor) {
               count = 2
             }
             this.drinker.push({
