@@ -31,13 +31,19 @@
                       <p class="title has-text-white is-4">
                         Share with my friends
                       </p>
-                      <a href="/" target="_blank">
+                      <a
+                        href="https://twitter.com/intent/tweet?hashtags=playndrink&ref_src=twsrc%5Etfw&text=Play%20and%20drink%20online%20%3F%20Yes%20you%20can%20%3A)%20!%20Check%20out%20this%20fun%20website%20%3A%20https%3A%2F%2Fwww.playndrink.online%20&tw_p=tweetbutton&via=PlaynDrink1"
+                        target="_blank"
+                      >
                         <span class="icon share-twitter has-text-white">
                           <fa-icon :icon="faTwitter" class="fa-2x" />
                         </span>
                       </a>
                       &nbsp; &nbsp; &nbsp;
-                      <a href="/" target="_blank">
+                      <a
+                        href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=https%3A%2F%2Fplayndrink.online%2F&display=popup&ref=plugin&src=share_button"
+                        target="_blank"
+                      >
                         <span class="icon share-facebook has-text-white">
                           <fa-icon :icon="faFacebook" class="fa-2x" />
                         </span>
@@ -207,7 +213,9 @@
                         </div>
                       </div>
                       <br />
-                      <div class="card">
+                      <div
+                        class="card is-hidden-tablet-only is-hidden-desktop-only"
+                      >
                         <div class="card-content">
                           <div class="media is-marginless">
                             <div class="media-left">

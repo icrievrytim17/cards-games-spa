@@ -1,4 +1,4 @@
-# cards-games-spa
+# play n drink online =)
 
 > Launch fast game cards during your parties
 

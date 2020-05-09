@@ -2,7 +2,7 @@
   <section class="hero">
     <div class="hero-body">
       <div class="container">
-        <div class="columns is-centered is-multiline is-marginless">
+        <div class="columns is-centered">
           <div class="column">
             <div class="tile is-ancestor">
               <div class="tile is-vertical">
