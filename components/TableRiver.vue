@@ -4,6 +4,9 @@
       <div v-if="draw > 0">
         <img width="40%" :src="getImgUrl(card.png)" :alt="card.number" />
       </div>
+      <div v-if="draw === 0">
+        <img width="40%" src="/cards-back/red_back.png" />
+      </div>
       <h3 v-if="draw === 0" class="title is-3">
         Start the river
       </h3>
