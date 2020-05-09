@@ -20,8 +20,8 @@
                 pas besoin de jeux de cartes. WTF !
               </p>
               <p>
-                On espère que vous allez kiffé le site. Si vous connaissez des
-                jeux de cartes de soirées marants, n'hésitez pas à le partager
+                On espère que vous allez kiffer le site. Si vous connaissez des
+                jeux de cartes de soirées marrants, n'hésitez pas à le partager
                 avec nous. Peut-être qu'on l'ajoutera au site :D.
               </p>
               <br />
@@ -32,7 +32,7 @@
                 <fa-icon :icon="faHeart" class="fa-lg has-text-primary" />.
               </p>
               <br />
-              <p>Petite dedicasse à tout nos potes :</p>
+              <p>Petite dédicace à tous nos potes :</p>
               <br />
               <img src="/mej.png" alt="" width="800" />
               <br />
