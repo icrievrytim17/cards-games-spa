@@ -4,9 +4,12 @@
       <div v-if="showPickResult" class="">
         <img width="40%" :src="getImgUrl(card.png)" :alt="card.name" />
       </div>
-      <h3 v-if="!showPickResult" class="title is-3">
+      <div v-if="!showPickResult">
+        <img width="40%" src="/cards-back/red_back.png" />
+      </div>
+      <h2 v-if="!showPickResult" class="title is-3">
         Start the distribution
-      </h3>
+      </h2>
       <div v-if="showPickResult" class="has-text-centered">
         <p class="content is-medium is-marginless">
           <strong>{{ pickResult }}</strong>
@@ -24,8 +27,8 @@
       </div>
       <hr />
       <div v-if="player.name != '' && draw < 5" class="has-text-centered">
-        It's <strong>{{ player.name }}</strong>
-        's turn
+        <strong>{{ player.name }}</strong>
+        's next
         <br />
         <span v-if="draw === 1" class="content is-medium">
           Red or Black

@@ -12,7 +12,7 @@
       </p>
     </header>
     <div class="card-content has-text-centered">
-      <div class="media">
+      <div v-if="player.cards.length > 0" class="media">
         <div
           v-for="(playerCard, index) in player.cards"
           :key="playerCard.id"
@@ -25,6 +25,11 @@
             :alt="playerCard.number"
             :class="'player-card' + index"
           />
+        </div>
+      </div>
+      <div v-if="player.cards.length === 0" class="media">
+        <div class="media-content">
+          <img width="85px" height="135px" src="/cards-back/red_back.png" />
         </div>
       </div>
       <div
