@@ -266,6 +266,15 @@
                 from our servers.
               </p>
               <h2 class="title is-2 has-text-dark">
+                Everyone's responsibility
+              </h2>
+              <p>
+                Our Service does not promote consumpt of alcohol. It's just a
+                way to have a good time with friends. Everyone is responsible
+                for their own way of drinking. Be careful. We will not be
+                responsible for any accident or problem after drinking game.
+              </p>
+              <h2 class="title is-2 has-text-dark">
                 Changes To This Privacy Policy
               </h2>
               <p>

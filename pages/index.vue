@@ -32,7 +32,15 @@
           <div class="level-item">
             <fa-icon :icon="faHandshake" class="fa-2x has-text-primary" />
             &nbsp; &nbsp;
-            <p>Agree to these rules</p>
+            <p>
+              Agree to our
+              <nuxt-link
+                class="has-text-white has-text-weight-bold is-italic"
+                to="/privacy"
+              >
+                privacy
+              </nuxt-link>
+            </p>
           </div>
         </div>
         <br />
