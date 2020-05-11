@@ -55,6 +55,7 @@ export default {
     "@nuxtjs/bulma",
     "@nuxtjs/style-resources",
     "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
   ],
 
   sitemap: {
@@ -67,6 +68,14 @@ export default {
       '/privacy',
     ],
   },
+
+  robots: {
+    Disallow: [
+      '/privacy',
+    ],
+    Sitemap: `${process.env.WEBSITE_URL}/sitemap.xml`
+  },
+
   /*
    ** Build configuration
    */
