@@ -73,7 +73,7 @@ export default {
     Disallow: [
       '/privacy',
     ],
-    Sitemap: `${process.env.WEBSITE_URL}/sitemap.xml`
+    Sitemap: `http://playndrink.online/sitemap.xml`
   },
 
   /*
