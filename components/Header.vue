@@ -36,25 +36,13 @@
             <n-link class="navbar-item" to="/about">
               About
             </n-link>
-            <!--            <span class="navbar-item">-->
-            <!--              <a-->
-            <!--                class="button is-dark"-->
-            <!--                href="https://github.com/icrievrytim17/cards-games-spa"-->
-            <!--                target="_blank "-->
-            <!--              >-->
-            <!--                <span class="icon">-->
-            <!--                  <fa-icon :icon="faGithub" class="fa-1x" />-->
-            <!--                </span>-->
-            <!--                <span>Github</span>-->
-            <!--              </a>-->
-            <!--            </span>-->
             <span
               class="navbar-item has-dropdown"
               :class="{ 'is-active': hoverLang }"
               @mouseover="hoverLang = true"
               @mouseleave="hoverLang = false"
             >
-              <a class="navbar-link">
+              <a class="navbar-link" @click="changeLanguage('en')">
                 <img
                   src="/united-kingdom.png"
                   width="25"
@@ -64,17 +52,12 @@
                 &nbsp;English
               </a>
               <div class="navbar-dropdown">
-                <a class="navbar-item">
+                <a class="navbar-item" @click="changeLanguage('fr')">
                   <img src="/france.png" width="25" height="25" alt="Logo" />
                   &nbsp;Français&nbsp;
-                  <span class="tag is-primary">Bientôt</span>
                 </a>
               </div>
             </span>
-            <!--            <span class="navbar-item">-->
-            <!--              <img src="/france.png" width="25" height="25" alt="Logo" />-->
-            <!--              &nbsp;French           -->
-            <!--            </span>-->
           </div>
         </div>
       </div>
@@ -112,8 +95,11 @@ export default {
   },
   methods: {
     toogle() {
-      console.log("toogle")
       this.showNavBar = !this.showNavBar
+    },
+    changeLanguage: function (locale) {
+      this.$i18n.locale = locale
+      this.$store.commit("language/SET_LANG", locale)
     },
   },
 }

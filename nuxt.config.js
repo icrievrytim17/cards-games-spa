@@ -29,7 +29,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~plugins/ga.js", mode: "client" }],
+  plugins: [{ src: "~plugins/ga.js", mode: "client" }, "~/plugins/i18n.js"],
+
+  router: {
+    middleware: "i18n",
+  },
   /*
    ** Nuxt.js dev-modules
    */
@@ -59,21 +63,20 @@ export default {
   ],
 
   sitemap: {
-    path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
+    path: "/sitemap.xml", // L'emplacement de votre fichier sitemap.
     hostname: process.env.WEBSITE_URL, // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
     cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
     gzip: true,
     generate: false, // Génère une version statique du sitemap quand activé. À utiliser avec nuxt generate.
-    exclude: [ // Les pages qu'on a pas trop envie de voir atterrir sur Google.
-      '/privacy',
+    exclude: [
+      // Les pages qu'on a pas trop envie de voir atterrir sur Google.
+      "/privacy",
     ],
   },
 
   robots: {
-    Disallow: [
-      '/privacy',
-    ],
-    Sitemap: `http://playndrink.online/sitemap.xml`
+    Disallow: ["/privacy"],
+    Sitemap: `http://playndrink.online/sitemap.xml`,
   },
 
   /*

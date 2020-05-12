@@ -1,0 +1,11 @@
+{
+    "index": {
+      "title": "Welcome to our website",
+      "title2": "<h1 class=\"title\">test</h1><h2 class=\"subtitle\">test</h2>",
+      "introduction": "Please before you start, read this :"
+    },
+    "home": {
+      "title": "EASY, FAST & FUN",
+      "introduction": "This page is made to give you more informations."
+    }
+}

@@ -9,10 +9,10 @@
         />
         <br />
         <h1 class="title">
-          Welcome to our website
+          {{ $t("index.title") }}
         </h1>
         <h2 class="subtitle">
-          Please before you start, read this :
+          {{ $t("index.introduction") }}
         </h2>
         <div class="level">
           <div class="level-item">

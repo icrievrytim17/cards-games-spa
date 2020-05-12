@@ -14,7 +14,7 @@
                           <fa-icon :icon="faHandPeace" />
                         </span>
                         <strong>
-                          EASY, FAST & FUN
+                          {{ $t("home.title") }}
                         </strong>
                       </p>
                       <p class="title is-6 has-text-white">
