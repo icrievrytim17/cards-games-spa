@@ -7,5 +7,20 @@
     "home": {
       "title": "EASY, FAST & FUN",
       "introduction": "This page is made to give you more informations."
+    },
+    "table": {
+      "title": "Start the distribution",
+      "drink": "%{player} drinks %{sip}",
+      "give": "%{player} gives %{sip}",
+      "next": "<strong>%{player}</strong>'s next</p>",
+      "redBlack": "Red or Black",
+      "red": "Red",
+      "black": "Black",
+      "moreLess": "More or less than %{card}",
+      "inOut": "Between %{card0} and %{card1} or out",
+      "in": "In",
+      "out": "Out",
+      "sign": "Hearts, Diamonds, Clubs or Spades",
+      "river": "Go to the river"
     }
 }

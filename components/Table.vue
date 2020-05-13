@@ -8,39 +8,43 @@
         <img width="40%" src="/cards-back/red_back.png" />
       </div>
       <h2 v-if="!showPickResult" class="title is-3">
-        Start the distribution
+        {{ $t("table.title") }}
       </h2>
       <div v-if="showPickResult" class="has-text-centered">
         <p class="content is-medium is-marginless">
           <strong>{{ pickResult }}</strong>
         </p>
         <p v-if="pickResult === 'Fail'">
-          {{ lastPlayer }} drink {{ sip }}
+          {{ $t("table.drink", { player: lastPlayer, sip: sip }) }}
           <span v-if="sip === 1">sip</span>
           <span v-if="sip !== 1">sips</span>
         </p>
         <p v-if="pickResult === 'Win'">
-          {{ lastPlayer }} give {{ sip }}
+          {{ $t("table.give", { player: lastPlayer, sip: sip }) }}
           <span v-if="sip === 1">sip</span>
           <span v-if="sip !== 1">sips</span>
         </p>
       </div>
       <hr />
       <div v-if="player.name != '' && draw < 5" class="has-text-centered">
-        <strong>{{ player.name }}</strong>
-        's next
+        <p v-html="$t('table.next', { player: player.name })"></p>
         <br />
         <span v-if="draw === 1" class="content is-medium">
-          Red or Black
+          {{ $t("table.redBlack") }}
         </span>
         <span v-if="draw === 2" class="content is-medium">
-          More or less than {{ sortedCards[0].name }}
+          {{ $t("table.moreLess", { card: sortedCards[0].name }) }}
         </span>
         <span v-if="draw === 3" class="content is-medium">
-          Between {{ sortedCards[0].name }} and {{ sortedCards[1].name }} or out
+          {{
+            $t("table.inOut", {
+              card0: sortedCards[0].name,
+              card1: sortedCards[1].name,
+            })
+          }}
         </span>
         <span v-if="draw === 4" class="content is-medium">
-          Hearts, Diamonds, Clubs or Spades
+          {{ $t("table.sign") }}
         </span>
       </div>
       <br />
@@ -50,13 +54,13 @@
             class="button is-primary is-medium is-table"
             @click="distribute('rouge')"
           >
-            Red
+            {{ $t("table.red") }}
           </button>
           <button
             class="button is-dark is-medium is-table"
             @click="distribute('noir')"
           >
-            Black
+            {{ $t("table.black") }}
           </button>
         </div>
       </div>
@@ -84,13 +88,13 @@
           class="button is-dark is-medium is-table"
           @click="distribute('int')"
         >
-          In
+          {{ $t("table.in") }}
         </button>
         <button
           class="button is-dark is-medium is-table"
           @click="distribute('ext')"
         >
-          Out
+          {{ $t("table.out") }}
         </button>
       </div>
       <!-- eslint-enable -->
@@ -128,7 +132,7 @@
           class="button is-primary is-medium is-rounded"
           @click="goToRiver"
         >
-          Go to the river
+          {{ $t("table.river") }}
         </button>
       </div>
     </div>

@@ -6,5 +6,20 @@
     "home": {
       "title": "Facile, Rapide et Fun",
       "introduction": "This page is made to give you more informations."
+    },
+    "table": {
+      "title": "Démarrer la distribution",
+      "drink": "%{player} boit %{sip}",
+      "give": "%{player} donne %{sip}",
+      "next": "<strong>%{player}</strong> est le suivant</p>",
+      "redBlack": "Rouge ou Noir",
+      "red": "Rouge",
+      "black": "Noir",
+      "moreLess": "Plus ou moins que %{card}",
+      "inOut": "Entre %{card0} et %{card1} ou à l'extérieur",
+      "in": "Intérieur",
+      "out": "Extérieur",
+      "sign": "Coeur, Carreau, Trèfle ou Pique",
+      "river": "Aller à la rivière"
     }
 }
