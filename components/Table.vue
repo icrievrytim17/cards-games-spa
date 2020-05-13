@@ -8,48 +8,48 @@
         <img width="40%" src="/cards-back/red_back.png" />
       </div>
       <h2 v-if="!showPickResult" class="title is-3">
-        {{ $t("table.title") }}
+        {{ $t("table.distribution.title") }}
       </h2>
       <div v-if="showPickResult" class="has-text-centered">
         <div v-if="pickResult === 'Fail'">
           <p
             class="content is-medium is-marginless has-text-centered"
-            v-html="$t('table.fail')"
+            v-html="$t('table.distribution.fail')"
           ></p>
           {{ $t("table.drink", { player: lastPlayer, sip: sip }) }}
-          <span v-if="sip === 1" v-html="$t('table.sip')"></span>
-          <span v-if="sip !== 1" v-html="$t('table.sips')"></span>
+          <span v-if="sip === 1">{{ $t("table.sip") }}</span>
+          <span v-if="sip !== 1">{{ $t("table.sips") }}</span>
         </div>
         <div v-if="pickResult === 'Win'">
           <p
             class="content is-medium is-marginless has-text-centered"
-            v-html="$t('table.win')"
+            v-html="$t('table.distribution.win')"
           ></p>
           {{ $t("table.give", { player: lastPlayer, sip: sip }) }}
-          <span v-if="sip === 1" v-html="$t('table.sip')"></span>
-          <span v-if="sip !== 1" v-html="$t('table.sips')"></span>
+          <span v-if="sip === 1">{{ $t("table.sip") }}</span>
+          <span v-if="sip !== 1">{{ $t("table.sips") }}</span>
         </div>
       </div>
       <hr />
       <div v-if="player.name != '' && draw < 5" class="has-text-centered">
-        <p v-html="$t('table.next', { player: player.name })"></p>
+        <p v-html="$t('table.distribution.next', { player: player.name })"></p>
         <br />
         <span v-if="draw === 1" class="content is-medium">
-          {{ $t("table.redBlack") }}
+          {{ $t("table.distribution.redBlack") }}
         </span>
         <span v-if="draw === 2" class="content is-medium">
-          {{ $t("table.moreLess", { card: sortedCards[0].name }) }}
+          {{ $t("table.distribution.moreLess", { card: sortedCards[0].name }) }}
         </span>
         <span v-if="draw === 3" class="content is-medium">
           {{
-            $t("table.inOut", {
+            $t("table.distribution.inOut", {
               card0: sortedCards[0].name,
               card1: sortedCards[1].name,
             })
           }}
         </span>
         <span v-if="draw === 4" class="content is-medium">
-          {{ $t("table.sign") }}
+          {{ $t("table.distribution.sign") }}
         </span>
       </div>
       <br />
@@ -59,13 +59,13 @@
             class="button is-primary is-medium is-table"
             @click="distribute('rouge')"
           >
-            {{ $t("table.red") }}
+            {{ $t("table.distribution.red") }}
           </button>
           <button
             class="button is-dark is-medium is-table"
             @click="distribute('noir')"
           >
-            {{ $t("table.black") }}
+            {{ $t("table.distribution.black") }}
           </button>
         </div>
       </div>
@@ -93,13 +93,13 @@
           class="button is-dark is-medium is-table"
           @click="distribute('int')"
         >
-          {{ $t("table.in") }}
+          {{ $t("table.distribution.in") }}
         </button>
         <button
           class="button is-dark is-medium is-table"
           @click="distribute('ext')"
         >
-          {{ $t("table.out") }}
+          {{ $t("table.distribution.out") }}
         </button>
       </div>
       <!-- eslint-enable -->
@@ -137,7 +137,7 @@
           class="button is-primary is-medium is-rounded"
           @click="goToRiver"
         >
-          {{ $t("table.river") }}
+          {{ $t("table.distribution.goRiver") }}
         </button>
       </div>
     </div>

@@ -8,26 +8,26 @@
         <img width="40%" src="/cards-back/red_back.png" />
       </div>
       <h3 v-if="draw === 0" class="title is-3">
-        Start the river
+        {{ $t("table.river.title") }}
       </h3>
       <br />
       <div class="content">
         <div v-if="round !== 0 && draw > 0 && drinker.length > 0">
           <div v-for="player in drinker" :key="player.id">
             <p v-if="!give">
-              {{ player.name }} drink {{ player.sip }}
-              <span v-if="player.sip === 1">sip</span>
-              <span v-if="player.sip > 1">sips</span>
+              {{ $t("table.drink", { player: player.name, sip: player.sip }) }}
+              <span v-if="player.sip === 1">{{ $t("table.sip") }}</span>
+              <span v-if="player.sip > 1">{{ $t("table.sips") }}</span>
             </p>
             <p v-if="give">
-              {{ player.name }} give <span>{{ player.sip }}</span>
-              <span v-if="player.sip === 1">sip</span>
-              <span v-if="player.sip > 1">sips</span>
+              {{ $t("table.give", { player: player.name, sip: player.sip }) }}
+              <span v-if="player.sip === 1">{{ $t("table.sip") }}</span>
+              <span v-if="player.sip > 1">{{ $t("table.sips") }}</span>
             </p>
           </div>
         </div>
         <div v-if="round !== 0 && draw > 0 && drinker.length === 0">
-          Nobody drink
+          {{ $t("table.river.nobody") }}
         </div>
         <br v-if="draw <= 11 || getAllCards" />
         <button
@@ -35,25 +35,25 @@
           class="button is-dark is-medium"
           @click="pick"
         >
-          Start
+          {{ $t("table.river.start") }}
         </button>
         <button
           v-if="deck.length > 0 && draw > 0 && (getAllCards || draw <= 11)"
           class="button is-dark is-medium"
           @click="pick"
         >
-          Pick a card
+          {{ $t("table.river.pick") }}
         </button>
         <div v-if="deck.length === 0 || (!getAllCards && draw > 11)">
           <hr />
           <p class="content is-medium">
-            It's over. Thanks to have play.
+            {{ $t("table.river.over") }}
           </p>
           <nuxt-link
             to="/add-player"
             class="button is-primary is-medium is-rounded"
           >
-            <span>Restart</span>
+            <span>{{ $t("table.river.restart") }}</span>
           </nuxt-link>
         </div>
       </div>

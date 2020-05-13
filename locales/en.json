@@ -9,22 +9,32 @@
       "introduction": "This page is made to give you more informations."
     },
     "table": {
-      "title": "Start the distribution",
-      "win": "<strong>Win</strong>",
-      "fail": "<strong>Fail</strong>",
+      "distribution" : {
+        "title": "Start the distribution",
+        "win": "<strong>Win</strong>",
+        "fail": "<strong>Fail</strong>",
+        "next": "<strong>%{player}</strong>'s next</p>",
+        "redBlack": "Red or Black",
+        "red": "Red",
+        "black": "Black",
+        "moreLess": "More or less than %{card}",
+        "inOut": "Between %{card0} and %{card1} or out",
+        "in": "In",
+        "out": "Out",
+        "sign": "Hearts, Diamonds, Clubs or Spades",
+        "goRiver": "Go to the river"
+      },
       "drink": "%{player} drinks %{sip}",
       "give": "%{player} gives %{sip}",
       "sip": "sip",
       "sips": "sips",
-      "next": "<strong>%{player}</strong>'s next</p>",
-      "redBlack": "Red or Black",
-      "red": "Red",
-      "black": "Black",
-      "moreLess": "More or less than %{card}",
-      "inOut": "Between %{card0} and %{card1} or out",
-      "in": "In",
-      "out": "Out",
-      "sign": "Hearts, Diamonds, Clubs or Spades",
-      "river": "Go to the river"
+      "river": {
+        "title": "Start the river",
+        "nobody": "Nobody drink",
+        "start": "Start",
+        "pick": "Pick a card",
+        "over": "It's over. Thanks to have play.",
+        "restart": "Restart"
+      }
     }
 }
