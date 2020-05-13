@@ -10,8 +10,12 @@
     },
     "table": {
       "title": "Start the distribution",
+      "win": "<strong>Win</strong>",
+      "fail": "<strong>Fail</strong>",
       "drink": "%{player} drinks %{sip}",
       "give": "%{player} gives %{sip}",
+      "sip": "sip",
+      "sips": "sips",
       "next": "<strong>%{player}</strong>'s next</p>",
       "redBlack": "Red or Black",
       "red": "Red",

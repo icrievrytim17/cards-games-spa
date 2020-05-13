@@ -11,19 +11,24 @@
         {{ $t("table.title") }}
       </h2>
       <div v-if="showPickResult" class="has-text-centered">
-        <p class="content is-medium is-marginless">
-          <strong>{{ pickResult }}</strong>
-        </p>
-        <p v-if="pickResult === 'Fail'">
+        <div v-if="pickResult === 'Fail'">
+          <p
+            class="content is-medium is-marginless has-text-centered"
+            v-html="$t('table.fail')"
+          ></p>
           {{ $t("table.drink", { player: lastPlayer, sip: sip }) }}
-          <span v-if="sip === 1">sip</span>
-          <span v-if="sip !== 1">sips</span>
-        </p>
-        <p v-if="pickResult === 'Win'">
+          <span v-if="sip === 1" v-html="$t('table.sip')"></span>
+          <span v-if="sip !== 1" v-html="$t('table.sips')"></span>
+        </div>
+        <div v-if="pickResult === 'Win'">
+          <p
+            class="content is-medium is-marginless has-text-centered"
+            v-html="$t('table.win')"
+          ></p>
           {{ $t("table.give", { player: lastPlayer, sip: sip }) }}
-          <span v-if="sip === 1">sip</span>
-          <span v-if="sip !== 1">sips</span>
-        </p>
+          <span v-if="sip === 1" v-html="$t('table.sip')"></span>
+          <span v-if="sip !== 1" v-html="$t('table.sips')"></span>
+        </div>
       </div>
       <hr />
       <div v-if="player.name != '' && draw < 5" class="has-text-centered">
@@ -157,7 +162,7 @@ export default {
   data() {
     return {
       card: "",
-      pickResult: "Perdu",
+      pickResult: "Fail",
       showPickResult: false,
       lastPlayer: "",
       sip: 1,

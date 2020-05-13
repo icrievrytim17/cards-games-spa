@@ -9,8 +9,12 @@
     },
     "table": {
       "title": "Démarrer la distribution",
+      "win": "<strong>Gagné</strong>",
+      "fail": "<strong>Perdu</strong>",
       "drink": "%{player} boit %{sip}",
       "give": "%{player} donne %{sip}",
+      "sip": "gorgée",
+      "sips": "gorgées",
       "next": "<strong>%{player}</strong> est le suivant</p>",
       "redBlack": "Rouge ou Noir",
       "red": "Rouge",
