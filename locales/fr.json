@@ -5,7 +5,7 @@
     },
     "home": {
       "title": "Facile, Rapide et Fun",
-      "introduction": "This page is made to give you more informations."
+      "introduction": "Bienvenue sur notre site de jeu à boire! Le jeu est simple, vous n'avez pas besoin de connaitre les règles... Soyez prêt avec votre alcool pour boire et jouer avec vos amis !"
     },
     "table": {
       "distribution": {
@@ -41,5 +41,15 @@
       "play": "Joue",
       "drink": "Boit",
       "give": "Donne"
+    },
+    "about": {
+      "text": "<p>Salut ! On est deux français &nbsp;&nbsp;<img src='/france.png' width='25' height='25' alt='Logo' />&nbsp;&nbsp; qui aiment profiter des plaisirs des soirées entre amis. Vous pouvez le voir sur l'image ci-dessous...</p><br /><p>A l'arrivée du confinement, on s'est demandé comment on pouvait continuer de jouer à distance avec nos amis. On adore jouer à des jeux de cartes alors on a eu l'idée d'un site de jeux de cartes en ligne. Comptez sur nous pour ajouter plusieurs jeux.</p><p>On espère que vous allez aimer le site, si c'est le cas n'hésitez pas à le partager à vos proches et sur les réseaux sociaux. Si vous connaissez des jeux de cartes de soirées, n'hésitez pas à le partager avec nous. Peut-être qu'on l'ajoutera au site :D.</p><br /><p>On remercie particulièrement ceux qui nous ont aidés pour réaliser ce site : <b>Dam</b>, <b>Emeline</b>, <b>Mélanie</b> et <b>Julian</b></p><br /><p class='content has-text-centered is-marginless'>Dédicace à tous nos potes :</p>",
+      "tools": "Développé avec :"
+    },
+    "footer": {
+      "hello": "<p>Viens dire bonjour à <a href='mailto:hello@playndrink.online' class='has-text-primary'>hello@playndrink.online</a>!</p>",
+      "built": "Développé avec",
+      "and": "et",
+      "city": "à Brest"
     }
 }
