@@ -27,7 +27,7 @@
                   >
                     <div class="tile is-child box has-background-black">
                       <p class="title has-text-white is-4">
-                        Share with my friends
+                        {{ $t("home.share") }}
                       </p>
                       <a
                         href="https://twitter.com/intent/tweet?hashtags=playndrink&ref_src=twsrc%5Etfw&text=Play%20and%20drink%20online%20%3F%20Yes%20you%20can%20%3A)%20!%20Check%20out%20this%20fun%20website%20%3A%20https%3A%2F%2Fwww.playndrink.online%20&tw_p=tweetbutton&via=PlaynDrink1"

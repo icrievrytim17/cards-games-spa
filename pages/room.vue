@@ -45,7 +45,7 @@ export default {
     }
   },
   computed: {
-    //GET pour récupérer dans le store la liste players
+    //GET pour récupérer dans les stores
     ...mapGetters({
       players: "players/get",
       discard: "discard/get",

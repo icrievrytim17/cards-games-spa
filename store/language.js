@@ -19,3 +19,10 @@ export const mutations = {
     }
   },
 }
+
+export const getters = {
+  //get the deck
+  get(state) {
+    return state.locale
+  },
+}

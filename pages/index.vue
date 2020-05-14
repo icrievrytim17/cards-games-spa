@@ -18,29 +18,21 @@
           <div class="level-item">
             <fa-icon :icon="faChild" class="fa-2x has-text-primary" />
             &nbsp; &nbsp;
-            <p>Every player must be over 18</p>
+            <p>{{ $t("index.age") }}</p>
           </div>
         </div>
         <div class="level">
           <div class="level-item">
             <fa-icon :icon="faWineBottle" class="fa-2x" />
             &nbsp; &nbsp;
-            <p>Everyone playing will drink responsibly</p>
+            <p>{{ $t("index.responsibly") }}</p>
           </div>
         </div>
         <div class="level">
           <div class="level-item">
             <fa-icon :icon="faHandshake" class="fa-2x has-text-primary" />
             &nbsp; &nbsp;
-            <p>
-              Agree to our
-              <nuxt-link
-                class="has-text-white has-text-weight-bold is-italic"
-                to="/privacy"
-              >
-                privacy
-              </nuxt-link>
-            </p>
+            <p v-html="$t('index.privacy')"></p>
           </div>
         </div>
         <br />

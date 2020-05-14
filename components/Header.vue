@@ -37,6 +37,7 @@
               About
             </n-link>
             <span
+              v-if="this.locale === 'en'"
               class="navbar-item has-dropdown"
               :class="{ 'is-active': hoverLang }"
               @mouseover="hoverLang = true"
@@ -54,7 +55,30 @@
               <div class="navbar-dropdown">
                 <a class="navbar-item" @click="changeLanguage('fr')">
                   <img src="/france.png" width="25" height="25" alt="Logo" />
-                  &nbsp;Français&nbsp;
+                  &nbsp;French&nbsp;
+                </a>
+              </div>
+            </span>
+            <span
+              v-if="this.locale === 'fr'"
+              class="navbar-item has-dropdown"
+              :class="{ 'is-active': hoverLang }"
+              @mouseover="hoverLang = true"
+              @mouseleave="hoverLang = false"
+            >
+              <a class="navbar-link" @click="changeLanguage('fr')">
+                <img src="/france.png" width="25" height="25" alt="Logo" />
+                &nbsp;Français
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item" @click="changeLanguage('en')">
+                  <img
+                    src="/united-kingdom.png"
+                    width="25"
+                    height="25"
+                    alt="Logo"
+                  />
+                  &nbsp;Anglais&nbsp;
                 </a>
               </div>
             </span>
@@ -81,6 +105,7 @@
 </style>
 <script>
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { mapGetters } from "vuex"
 export default {
   data() {
     return {
@@ -89,6 +114,10 @@ export default {
     }
   },
   computed: {
+    //GET pour récupérer dans la locale
+    ...mapGetters({
+      locale: "language/get",
+    }),
     faGithub() {
       return faGithub
     },
