@@ -36,5 +36,11 @@
         "over": "It's over. Thanks to have play.",
         "restart": "Restart"
       }
+    },
+    "player": {
+      "wait": "Waiting",
+      "play": "Playing",
+      "drink": "Drink",
+      "give": "Give"
     }
 }

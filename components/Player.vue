@@ -36,7 +36,10 @@
         :class="{ 'has-text-weight-bold': player.state != 'Waiting' }"
         class="content is-medium"
       >
-        {{ player.state }}
+        <span v-if="player.state === 'Waiting'">{{ $t("player.wait") }}</span>
+        <span v-if="player.state === 'Playing'">{{ $t("player.play") }}</span>
+        <span v-if="player.state === 'Drink'">{{ $t("player.drink") }}</span>
+        <span v-if="player.state === 'Give'">{{ $t("player.give") }}</span>
       </div>
     </div>
   </div>

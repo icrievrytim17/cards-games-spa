@@ -35,5 +35,11 @@
         "over": "C'est terminé. Merci d'avoir joué.",
         "restart": "Redémarrer"
       }
+    },
+    "player": {
+      "wait": "En attente",
+      "play": "Joue",
+      "drink": "Boit",
+      "give": "Donne"
     }
 }
