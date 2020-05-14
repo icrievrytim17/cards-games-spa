@@ -2,7 +2,10 @@
     "index": {
       "title": "Welcome to our website",
       "title2": "<h1 class=\"title\">test</h1><h2 class=\"subtitle\">test</h2>",
-      "introduction": "Please before you start, read this :"
+      "introduction": "Please before you start, read this :",
+      "age": "Every player must be over 18",
+      "responsibly": "Everyone playing will drink responsibly",
+      "privacy": "Agree to our <nuxt-link class='has-text-white has-text-weight-bold is-italic' to='/privacy'>privacy</nuxt-link>"
     },
     "home": {
       "title": "EASY, FAST & FUN",

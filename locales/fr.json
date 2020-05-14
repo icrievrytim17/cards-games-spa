@@ -1,7 +1,10 @@
 {
     "index": {
       "title": "Bienvenue",
-      "introduction": "Avant de jouer, merci de lire les consignes suivantes :"
+      "introduction": "Avant de jouer, merci de lire les consignes suivantes :",
+      "age": "Chaque joueur a plus de 18 ans",
+      "responsibly": "Chaque joueur boit de façon responsable",
+      "privacy": "D'accord avec notre <nuxt-link class='has-text-white has-text-weight-bold is-italic' to='/privacy'>politique</nuxt-link>"
     },
     "home": {
       "title": "Facile, Rapide et Fun",

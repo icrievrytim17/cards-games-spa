@@ -18,9 +18,7 @@
                         </strong>
                       </p>
                       <p class="title is-6 has-text-white">
-                        Welcome to our online drinking game! The game is simple,
-                        you don’t even have to know the rules... So be ready
-                        with your alcohol to drink & play with your friends!
+                        {{ $t("home.introduction") }}
                       </p>
                     </div>
                   </div>
