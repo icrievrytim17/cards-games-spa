@@ -6,10 +6,23 @@
       "responsibly": "Chaque joueur boit de façon responsable",
       "privacy": "D'accord avec notre <nuxt-link class='has-text-white has-text-weight-bold is-italic' to='/privacy'>politique</nuxt-link>"
     },
+    "header": {
+      "home": "Accueil",
+      "about": "A propos"
+    },
     "home": {
-      "title": "Facile, Rapide et Fun",
-      "introduction": "Bienvenue sur notre site de jeu à boire! Le jeu est simple, vous n'avez pas besoin de connaitre les règles... Soyez prêt avec votre alcool pour boire et jouer avec vos amis !",
-      "share": "Partager avec vos amis"
+      "introduction": {
+        "title": "Facile, Rapide et Fun",
+        "text": "Bienvenue sur notre site de jeu à boire! Le jeu est simple, vous n'avez pas besoin de connaitre les règles... Soyez prêt avec votre alcool pour boire et jouer avec vos amis!"
+      },
+      "share": "Partager avec vos amis",
+      "title": "ROUGE OU NOIR",
+      "rules": "",
+      "players": {
+        "min": "2 joueurs",
+        "max": "10 joueurs"
+      },
+      "play": "Jouer"
     },
     "table": {
       "distribution": {
@@ -51,7 +64,7 @@
       "tools": "Développé avec :"
     },
     "footer": {
-      "hello": "<p>Viens dire bonjour à <a href='mailto:hello@playndrink.online' class='has-text-primary'>hello@playndrink.online</a>!</p>",
+      "hello": "<p>Viens nous dire bonjour <a href='mailto:hello@playndrink.online' class='has-text-primary'>hello@playndrink.online</a>!</p>",
       "built": "Développé avec",
       "and": "et",
       "city": "à Brest"

@@ -14,11 +14,11 @@
                           <fa-icon :icon="faHandPeace" />
                         </span>
                         <strong>
-                          {{ $t("home.title") }}
+                          {{ $t("home.introduction.title") }}
                         </strong>
                       </p>
                       <p class="title is-6 has-text-white">
-                        {{ $t("home.introduction") }}
+                        {{ $t("home.introduction.text") }}
                       </p>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                       class="tile is-child box box-shadow-lift has-text-centered"
                     >
                       <p class="title is-4 has-text-dark">
-                        RED OR BLACK
+                        {{ $t("home.title") }}
                       </p>
                       <hr />
                       <div class="card-image">
@@ -86,13 +86,17 @@
                         <div class="control">
                           <div class="tags has-addons">
                             <span class="tag is-link">MIN</span>
-                            <span class="tag is-black">2 players</span>
+                            <span class="tag is-black">
+                              {{ $t("home.players.min") }}
+                            </span>
                           </div>
                         </div>
                         <div class="control">
                           <div class="tags has-addons">
                             <span class="tag is-link">MAX</span>
-                            <span class="tag is-black">10 players</span>
+                            <span class="tag is-black">
+                              {{ $t("home.players.max") }}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -104,7 +108,7 @@
                         <span class="icon">
                           <fa-icon :icon="faPlay" />
                         </span>
-                        <span>Play a game</span>
+                        <span>{{ $t("home.play") }}</span>
                       </nuxt-link>
                     </div>
                   </div>

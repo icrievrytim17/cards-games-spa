@@ -7,10 +7,23 @@
       "responsibly": "Everyone playing will drink responsibly",
       "privacy": "Agree to our <nuxt-link class='has-text-white has-text-weight-bold is-italic' to='/privacy'>privacy</nuxt-link>"
     },
+    "header": {
+      "home": "Home",
+      "about": "About"
+    },
     "home": {
-      "title": "EASY, FAST & FUN",
-      "introduction": "Welcome to our online drinking game! The game is simple, you don’t even have to know the rules... So be ready with your alcohol to drink & play with your friends!",
-      "share": "Share with my friends"
+      "introduction": {
+        "title": "EASY, FAST & FUN",
+        "text": "Welcome to our online drinking game! The game is simple, you don’t even have to know the rules... So be ready with your alcohol to drink & play with your friends!"
+      },
+      "share": "Share with my friends",
+      "title": "RED OR BLACK",
+      "rules": "",
+      "players": {
+        "min": "2 players",
+        "max": "10 players"
+      },
+      "play": "Play a game"
     },
     "table": {
       "distribution" : {

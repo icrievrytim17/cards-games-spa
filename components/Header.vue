@@ -31,10 +31,10 @@
         >
           <div class="navbar-end">
             <nuxt-link class="navbar-item is-active" to="/home">
-              Home
+              {{ $t("header.home") }}
             </nuxt-link>
             <n-link class="navbar-item" to="/about">
-              About
+              {{ $t("header.about") }}
             </n-link>
             <span
               v-if="this.locale === 'en'"
