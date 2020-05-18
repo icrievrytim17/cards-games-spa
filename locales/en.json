@@ -18,7 +18,7 @@
       },
       "share": "Share with my friends",
       "title": "RED OR BLACK",
-      "rules": "",
+      "rules": "<p class='is-marginless'>Red or black, more or less, in or out and finally clubs, spades, hearts or diamonds ?</p><p>Then there is the river ... Prepare yourselves !</p>",
       "players": {
         "min": "2 players",
         "max": "10 players"

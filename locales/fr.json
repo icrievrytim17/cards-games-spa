@@ -17,7 +17,7 @@
       },
       "share": "Partager avec vos amis",
       "title": "ROUGE OU NOIR",
-      "rules": "",
+      "rules": "<p class='is-marginless'>Rouge ou noir, plus ou moins, intérieur ou extérieur puis Trèfle, Pique, Coeur ou Carreau ?</p><p>Ensuite place à la rivière ... Préparez-vous !</p>",
       "players": {
         "min": "2 joueurs",
         "max": "10 joueurs"

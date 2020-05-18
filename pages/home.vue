@@ -68,13 +68,10 @@
                         </figure>
                       </div>
                       <br />
-                      <p class="subtitle is-6 is-marginless">
-                        Red or black, more or less, in or out and finally clubs,
-                        spades, hearts or diamonds ?
-                      </p>
-                      <p class="subtitle is-6">
-                        Then there is the river ... Prepare yourselves !
-                      </p>
+                      <div
+                        class="subtitle is-6"
+                        v-html="$t('home.rules')"
+                      ></div>
                       <div
                         class="field is-grouped is-grouped-multiline has-addons has-addons-centered"
                       >
