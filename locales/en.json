@@ -25,6 +25,31 @@
       },
       "play": "Play a game"
     },
+    "addPlayer" : {
+      "rules": {
+        "title": "Spice up the game",
+        "doubleTap": {
+          "title": "Double color tap",
+          "text": "If you have the same color of the card you draw, double the sip !!"
+        },
+        "lastCard": {
+          "title": "Until the last card",
+          "text": "The game end when all the cards are drawn. Prepare yourself ! Be brave."
+        },
+        "rest": {
+          "title": "No rest",
+          "text": "If no one has the card drawn, we redo a card draw until someone has the card."
+        }
+      },
+      "players": {
+        "title": "Who plays ?",
+        "min": "Players min",
+        "max": "Players max",
+        "placeholder": "New player",
+        "button": "Add",
+        "list": "List of players"
+      }
+    },
     "table": {
       "distribution" : {
         "title": "Start the distribution",

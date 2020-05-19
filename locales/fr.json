@@ -24,6 +24,31 @@
       },
       "play": "Jouer"
     },
+    "addPlayer" : {
+      "rules": {
+        "title": "Pimenter le jeu",
+        "doubleTap": {
+          "title": "Double cartouches",
+          "text": "Si vous avez la même couleur que la carte tirée, double gorgées !!"
+        },
+        "lastCard": {
+          "title": "Jusqu'à la dernière carte",
+          "text": "Le jeu se termine quand toutes les cartes ont été tirées. Préparez-vous ! Soyez brave."
+        },
+        "rest": {
+          "title": "Pas de repos",
+          "text": "Si personne n'a la carte tirée, nous retirons une carte jusqu'à que quelqu'un ait la carte."
+        }
+      },
+      "players": {
+        "title": "Qui joue ?",
+        "min": "Joueurs min",
+        "max": "Joueurs max",
+        "placeholder": "Nouveau joueur",
+        "button": "Ajouter",
+        "list": "Liste des joueurs"
+      }
+    },
     "table": {
       "distribution": {
         "title": "Démarrer la distribution",

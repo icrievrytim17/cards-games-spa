@@ -119,7 +119,7 @@
                           <label
                             class="label title is-4 has-text-dark has-text-centered"
                           >
-                            Spice up the game
+                            {{ $t("addPlayer.rules.title") }}
                           </label>
                           &nbsp; &nbsp;
                           <span class="icon">
@@ -139,13 +139,14 @@
                               <span class="slider round"></span>
                             </label>
                             &nbsp; &nbsp;
-                            <label class="label">Double color tap</label>
+                            <label class="label">
+                              {{ $t("addPlayer.rules.doubleTap.title") }}
+                            </label>
                           </div>
                         </div>
                       </div>
                       <p>
-                        If you have the same color of the card you draw, double
-                        the sip !!
+                        {{ $t("addPlayer.rules.doubleTap.text") }}
                       </p>
                       <br />
                       <div class="level">
@@ -156,13 +157,14 @@
                               <span class="slider round"></span>
                             </label>
                             &nbsp; &nbsp;
-                            <label class="label">Until the last card</label>
+                            <label class="label">
+                              {{ $t("addPlayer.rules.lastCard.title") }}
+                            </label>
                           </div>
                         </div>
                       </div>
                       <p>
-                        The game end when all the cards are drawn. Prepare
-                        yourself ! Be brave.
+                        {{ $t("addPlayer.rules.lastCard.text") }}
                       </p>
                       <br />
                       <div class="level">
@@ -173,23 +175,27 @@
                               <span class="slider round"></span>
                             </label>
                             &nbsp; &nbsp;
-                            <label class="label">No rest</label>
+                            <label class="label">
+                              {{ $t("addPlayer.rules.rest.title") }}
+                            </label>
                           </div>
                         </div>
                       </div>
                       <p>
-                        If no one has the card drawn, we redo a card draw until
-                        someone has the card.
+                        {{ $t("addPlayer.rules.rest.text") }}
                       </p>
                     </div>
                     <div class="tile is-child box">
                       <label
                         class="label title is-4 has-text-dark has-text-centered"
                       >
-                        Who plays ?
+                        {{ $t("addPlayer.players.title") }}
                       </label>
                       <hr />
-                      <p><b>Players min</b> = 2 / <b>Players max</b> = 10</p>
+                      <p>
+                        <b>{{ $t("addPlayer.players.min") }}</b> = 2 /
+                        <b>{{ $t("addPlayer.players.max") }}</b> = 10
+                      </p>
                       <br />
                       <div class="field is-grouped">
                         <div class="control is-expanded">
@@ -198,7 +204,7 @@
                             class="input"
                             type="text"
                             maxlength="20"
-                            placeholder="New player"
+                            :placeholder="$t('addPlayer.players.placeholder')"
                             @keyup.enter="
                               !nbrMaxPlayers && newplayer.length > 0
                                 ? addPlayer(newplayer)
@@ -213,12 +219,12 @@
                             class="button is-primary"
                             @click="addPlayer(newplayer)"
                           >
-                            Add
+                            {{ $t("addPlayer.players.button") }}
                           </button>
                         </div>
                       </div>
                       <label v-if="players.length > 0" class="label">
-                        List of players
+                        {{ $t("addPlayer.players.list") }}
                       </label>
                       <div class="field is-grouped is-grouped-multiline">
                         <div
