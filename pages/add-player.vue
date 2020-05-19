@@ -255,7 +255,7 @@
                           <span class="icon">
                             <fa-icon :icon="faPlay" />
                           </span>
-                          <span>Play</span>
+                          <span>{{ $t("addPlayer.players.play") }}</span>
                         </nuxt-link>
                       </div>
                     </div>

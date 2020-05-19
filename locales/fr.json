@@ -46,7 +46,8 @@
         "max": "Joueurs max",
         "placeholder": "Nouveau joueur",
         "button": "Ajouter",
-        "list": "Liste des joueurs"
+        "list": "Liste des joueurs",
+        "play": "Jouer"
       }
     },
     "table": {

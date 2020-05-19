@@ -47,7 +47,8 @@
         "max": "Players max",
         "placeholder": "New player",
         "button": "Add",
-        "list": "List of players"
+        "list": "List of players",
+        "play": "Play"
       }
     },
     "table": {
