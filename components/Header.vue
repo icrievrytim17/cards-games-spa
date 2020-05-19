@@ -37,7 +37,7 @@
               {{ $t("header.about") }}
             </n-link>
             <span
-              v-if="this.locale === 'en'"
+              v-if="locale === 'en'"
               class="navbar-item has-dropdown"
               :class="{ 'is-active': hoverLang }"
               @mouseover="hoverLang = true"
@@ -60,7 +60,7 @@
               </div>
             </span>
             <span
-              v-if="this.locale === 'fr'"
+              v-if="locale === 'fr'"
               class="navbar-item has-dropdown"
               :class="{ 'is-active': hoverLang }"
               @mouseover="hoverLang = true"
