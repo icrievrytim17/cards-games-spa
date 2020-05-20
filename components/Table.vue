@@ -12,19 +12,17 @@
       </h2>
       <div v-if="showPickResult" class="has-text-centered">
         <div v-if="pickResult === 'Fail'">
-          <p
-            class="content is-medium is-marginless has-text-centered"
-            v-html="$t('table.distribution.fail')"
-          ></p>
+          <p class="content is-medium is-marginless has-text-centered">
+            <strong>{{ $t("table.distribution.fail") }}</strong>
+          </p>
           {{ $t("table.drink", { player: lastPlayer, sip: sip }) }}
           <span v-if="sip === 1">{{ $t("table.sip") }}</span>
           <span v-if="sip !== 1">{{ $t("table.sips") }}</span>
         </div>
         <div v-if="pickResult === 'Win'">
-          <p
-            class="content is-medium is-marginless has-text-centered"
-            v-html="$t('table.distribution.win')"
-          ></p>
+          <p class="content is-medium is-marginless has-text-centered">
+            <strong>{{ $t("table.distribution.win") }}</strong>
+          </p>
           {{ $t("table.give", { player: lastPlayer, sip: sip }) }}
           <span v-if="sip === 1">{{ $t("table.sip") }}</span>
           <span v-if="sip !== 1">{{ $t("table.sips") }}</span>
@@ -32,7 +30,9 @@
       </div>
       <hr />
       <div v-if="player.name != '' && draw < 5" class="has-text-centered">
-        <p v-html="$t('table.distribution.next', { player: player.name })"></p>
+        <p>
+          <strong>{{ player.name }}</strong> {{ $t("table.distribution.next") }}
+        </p>
         <br />
         <span v-if="draw === 1" class="content is-medium">
           {{ $t("table.distribution.redBlack") }}

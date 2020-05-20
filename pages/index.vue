@@ -32,7 +32,13 @@
           <div class="level-item">
             <fa-icon :icon="faHandshake" class="fa-2x has-text-primary" />
             &nbsp; &nbsp;
-            <p v-html="$t('index.privacy')"></p>
+            {{ $t("index.privacy.text") }}
+            <nuxt-link
+              class="has-text-white has-text-weight-bold is-italic"
+              to="/privacy"
+            >
+              &nbsp;{{ $t("index.privacy.link") }}
+            </nuxt-link>
           </div>
         </div>
         <br />

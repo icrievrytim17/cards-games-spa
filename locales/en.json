@@ -1,11 +1,13 @@
 {
     "index": {
       "title": "Welcome to our website",
-      "title2": "<h1 class=\"title\">test</h1><h2 class=\"subtitle\">test</h2>",
       "introduction": "Please before you start, read this :",
       "age": "Every player must be over 18",
       "responsibly": "Everyone playing will drink responsibly",
-      "privacy": "Agree to our <nuxt-link class='has-text-white has-text-weight-bold is-italic' to='/privacy'>privacy</nuxt-link>"
+      "privacy": {
+        "text": "Agree to our",
+        "link": "privacy"
+      }
     },
     "header": {
       "home": "Home",
@@ -18,7 +20,10 @@
       },
       "share": "Share with my friends",
       "title": "RED OR BLACK",
-      "rules": "<p class='is-marginless'>Red or black, more or less, in or out and finally clubs, spades, hearts or diamonds ?</p><p>Then there is the river ... Prepare yourselves !</p>",
+      "rules": {
+        "p": "Red or black, more or less, in or out and finally clubs, spades, hearts or diamonds ?",
+        "p-2": "Then there is the river ... Prepare yourselves !"
+      },
       "players": {
         "min": "2 players",
         "max": "10 players"
@@ -54,9 +59,9 @@
     "table": {
       "distribution" : {
         "title": "Start the distribution",
-        "win": "<strong>Win</strong>",
-        "fail": "<strong>Fail</strong>",
-        "next": "<strong>%{player}</strong>'s next</p>",
+        "win": "Win",
+        "fail": "Fail",
+        "next": "'s next",
         "redBlack": "Red or Black",
         "red": "Red",
         "black": "Black",
@@ -91,7 +96,7 @@
       "tools": "Built with :"
     },
     "footer": {
-      "hello": "<p>Say hello at <a href='mailto:hello@playndrink.online' class='has-text-primary'>hello@playndrink.online</a>!</p>",
+      "hello": "Say hello at",
       "built": "Built with",
       "and": "and",
       "city": "in Brest"

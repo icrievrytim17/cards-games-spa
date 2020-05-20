@@ -4,7 +4,13 @@
       <p><strong>Play & Drink</strong> by kauffret and gllm fgn. ©2020</p>
     </div>
     <div class="content container has-text-centered">
-      <p v-html="$t('footer.hello')"></p>
+      <p>
+        {{ $t("footer.hello") }}
+        <a href="mailto:hello@playndrink.online" class="has-text-primary">
+          hello@playndrink.online
+        </a>
+        !
+      </p>
       <p>
         {{ $t("footer.built") }}
         <fa-icon :icon="faWineBottle" class="fa-lg has-text-black" />

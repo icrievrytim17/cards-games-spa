@@ -68,10 +68,12 @@
                         </figure>
                       </div>
                       <br />
-                      <div
-                        class="subtitle is-6"
-                        v-html="$t('home.rules')"
-                      ></div>
+                      <div class="subtitle is-6">
+                        <p class="is-marginless">
+                          {{ $t("home.rules.p") }}
+                        </p>
+                        <p>{{ $t("home.rules.p-2") }}</p>
+                      </div>
                       <div
                         class="field is-grouped is-grouped-multiline has-addons has-addons-centered"
                       >

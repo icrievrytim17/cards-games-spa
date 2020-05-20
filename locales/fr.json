@@ -1,10 +1,13 @@
 {
     "index": {
       "title": "Bienvenue",
-      "introduction": "Avant de jouer, merci de lire les consignes suivantes :",
+      "introduction": "Avant de commencer, merci de lire les consignes suivantes :",
       "age": "Chaque joueur a plus de 18 ans",
       "responsibly": "Chaque joueur boit de façon responsable",
-      "privacy": "D'accord avec notre <nuxt-link class='has-text-white has-text-weight-bold is-italic' to='/privacy'>politique</nuxt-link>"
+      "privacy": {
+        "text": "D'accord avec notre",
+        "link": "politique"
+      }
     },
     "header": {
       "home": "Accueil",
@@ -13,11 +16,14 @@
     "home": {
       "introduction": {
         "title": "Facile, Rapide et Fun",
-        "text": "Bienvenue sur notre site de jeu à boire! Le jeu est simple, vous n'avez pas besoin de connaitre les règles... Soyez prêt avec votre alcool pour boire et jouer avec vos amis!"
+        "text": "Bienvenue sur notre site de jeu à boire! Le jeu est simple, vous n'avez pas besoin de connaître les règles... Soyez prêt avec votre boisson pour boire et jouer avec vos amis!"
       },
       "share": "Partager avec vos amis",
       "title": "ROUGE OU NOIR",
-      "rules": "<p class='is-marginless'>Rouge ou noir, plus ou moins, intérieur ou extérieur puis Trèfle, Pique, Coeur ou Carreau ?</p><p>Ensuite place à la rivière ... Préparez-vous !</p>",
+      "rules": {
+        "p": "Rouge ou noir, plus ou moins, intérieur ou extérieur puis Trèfle, Pique, Coeur ou Carreau ?",
+        "p-2": "Ensuite place à la rivière ... Préparez-vous !"
+      },
       "players": {
         "min": "2 joueurs",
         "max": "10 joueurs"
@@ -53,9 +59,9 @@
     "table": {
       "distribution": {
         "title": "Démarrer la distribution",
-        "win": "<strong>Gagné</strong>",
-        "fail": "<strong>Perdu</strong>",
-        "next": "<strong>%{player}</strong> est le suivant</p>",
+        "win": "Gagné",
+        "fail": "Perdu",
+        "next": "est le suivant",
         "redBlack": "Rouge ou Noir",
         "red": "Rouge",
         "black": "Noir",
@@ -90,7 +96,7 @@
       "tools": "Développé avec :"
     },
     "footer": {
-      "hello": "<p>Viens nous dire bonjour <a href='mailto:hello@playndrink.online' class='has-text-primary'>hello@playndrink.online</a>!</p>",
+      "hello": "Viens nous dire bonjour sur",
       "built": "Développé avec",
       "and": "et",
       "city": "à Brest"
