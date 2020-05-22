@@ -37,14 +37,14 @@
         <span v-if="draw === 1" class="content is-medium">
           {{ $t("table.distribution.redBlack") }}
         </span>
-        <span v-if="draw === 2" class="content is-medium">
-          {{ $t("table.distribution.moreLess", { card: sortedCards[0].name }) }}
-        </span>
+        <div v-if="draw === 2" class="content is-medium">
+          {{ $t("table.distribution.moreLess", { card: translateFirstCard }) }}
+        </div>
         <span v-if="draw === 3" class="content is-medium">
           {{
             $t("table.distribution.inOut", {
-              card0: sortedCards[0].name,
-              card1: sortedCards[1].name,
+              card0: translateFirstCard,
+              card1: translateSecondCard,
             })
           }}
         </span>
@@ -172,6 +172,7 @@ export default {
     //GET pour récupérer dans le store le deck
     ...mapGetters({
       deck: "deck/get",
+      locale: "language/get",
     }),
     sortedCards: function () {
       return _sortBy(this.player.cards, "number")
@@ -181,6 +182,24 @@ export default {
     },
     faMinus() {
       return faMinus
+    },
+    translateFirstCard: function () {
+      if (
+        this.locale === "en" &&
+        (this.sortedCards[0].number === 1 || this.sortedCards[0].number > 10)
+      ) {
+        return this.translate(this.sortedCards[0].name)
+      }
+      return this.sortedCards[0].name
+    },
+    translateSecondCard: function () {
+      if (
+        this.locale === "en" &&
+        (this.sortedCards[1].number === 1 || this.sortedCards[1].number > 10)
+      ) {
+        return this.translate(this.sortedCards[1].name)
+      }
+      return this.sortedCards[1].name
     },
   },
   methods: {
@@ -226,6 +245,21 @@ export default {
         this.pickResult = "Win"
       }
       this.sip = this.draw
+    },
+    translate: function (name) {
+      console.log("test translate")
+      console.log(this.locale)
+      if (name === "AS") {
+        return "Ace"
+      } else if (name === "Valet") {
+        return "Jack"
+      } else if (name === "Dame") {
+        return "Queen"
+      } else if (name === "Roi") {
+        return "King"
+      } else {
+        return name
+      }
     },
     goToRiver: function () {
       this.$emit("go-river")
