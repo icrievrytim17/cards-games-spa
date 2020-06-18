@@ -64,6 +64,18 @@ $hero-body-padding : 1.5rem;
   box-shadow: 0 1px 6px 0 $black;
 }
 
+.navbar.is-black .navbar-dropdown.is-black .navbar-menu.is-black{
+  background-color: #1B1B1E !important;
+}
+
+.navbar-item.is-black .navbar-link.is-black {
+  color: #fff;
+}
+
+.navbar-item.is-black:hover {
+  color: #000;
+}
+
 .container.has-shadow {
   box-shadow: 0 1px 6px 0 $black;
 }
